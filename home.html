@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>てっぺんへようこそ</title>
+
+    <!-- 外部CSS -->
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="map.css">
+    <!-- Font Awesome（Instagram・Twitter用） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="logo">
+    <div class="logo-img-wrap">
+        <img src="てっぺん金ロゴ.jpg" alt="ロゴ">
+    </div>
+
+    <span class="logo-text">南伊勢からあなたへ美味しいお魚を</span>
+
+    <div class="fish-wrap">
+        <img src="鯛魚拓編集済.png" class="fish-icon" alt="魚アイコン">
+    </div>
+</div>
+
+<!-- ハンバーガーだけ重ねるヘッダー -->
+    <header class="header">
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div id="overlay"></div>
+
+        <nav class="nav" id="nav">
+            <ul>
+                <li><a href="home.html">ホーム</a></li>
+                <li><a href="menu.html">メニュー</a></li>
+                <li><a href="shop.html">店舗情報</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- スライドショー -->
+
+<div class="slideshow-container">
+    <div class="slide">
+        <img src="刺身盛り合わせ.webp" alt="Slide 1">
+    </div>
+    <div class="slide">
+        <img src="内観.jpg" alt="Slide 2">
+    </div>
+    <div class="slide">
+        <img src="外観.jpg" alt="Slide 3">
+    </div>
+</div>
+
+<!-- ★ ここで top-buttons を閉じる！ -->
+<div class="top-buttons">
+    <a href="menu.html" class="menu-btn">▶ メニューを見る</a>
+    
+    
+</div>
+
+<!-- ★ 外観セクションは top-buttons の外に置く -->
+<section class="store-section">
+    <img src="外観.jpg" alt="店舗外観" class="store-photo">
+
+    <div class="store-concept">
+        <p>
+            毎朝届く新鮮な魚を、その日のおすすめでご提供しています。<br>
+            木の温もりあふれる店内で、ゆったりとお楽しみください。
+        </p>
+    </div>
+</section>
+
+<section class="store-info">
+      <h1 class="page-title">店舗情報</h1>
+      <p>営業時間：17:00〜23:00</p>
+      <p>定休日：ランチのみ第2木曜日定休</p>
+      <p>住所：三重県桑名市有楽町39</p>
+      <p class="tel-block">電話：050-5589-2544</p>
+
+      <a href="https://tabelog.com/mie/A2402/A240203/24007858/?msockid=2af6993ef1dd67db23f18aaff06766ac" target="_blank" rel="noopener noreferrer" class="tabelog-btn" 
+      target="_blank" 
+      rel="noopener noreferrer">
+      食べログ「魚のてっぺん」ページはこちら
+      </a>
+</section>
+
+  <h1 class="page-title">アクセス</h1>
+
+  <div class="map-wrap">
+    <!-- Googleマップの埋め込みコードをここに貼る -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3265.5737207814227!2d136.68388467557403!3d35.06739527279159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1777122703929!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+<section class="pickup-menu">
+  <h1 class="page-title">人気メニュー</h1>
+
+  <div class="pickup-container">
+
+    <div class="pickup-item">
+      <img src="刺身盛り合わせ.webp" alt="刺身盛り合わせ">
+      <h3>刺身盛り合わせ</h3>
+      <p class="price">¥1,800</p>
+    </div>
+
+    <div class="pickup-item">
+      <img src="てっぺんはまぐり.webp" alt="てっぺん玉子焼き">
+      <h3>焼き蛤 1ヶ</h3>
+      <p class="price">¥780</p>
+    </div>
+
+    <div class="pickup-item">
+      <img src="てっぺん鯛の釜めし.jpg" alt="鯛の釜めし">
+      <h3>鯛釜めし</h3>
+      <p class="price">¥880</p>
+    </div>
+
+    <div class="pickup-item">
+      <img src="てっぺん唐揚げ.jpg" alt="唐揚げ">
+      <h3>鶏の唐揚げ</h3>
+      <p class="price">¥780</p>
+    </div>
+
+  </div> <!-- ★ ここで pickup-container を閉じる -->
+</section> <!-- ★ pickup-menu を閉じる -->
+
+
+<!-- ★ local-drinks は pickup-menu の外に置く -->
+    <!-- スマックゴールド -->
+<section class="local-drinks">
+  <h1 class="page-title">地元ドリンク</h1>
+
+  <div class="drink-container">
+
+    <div class="drink-item">
+      <img src="スマックゴールド.webp" alt="スマックゴールド">
+      <p class="drink-catch">なつかしい「スマックゴールド」</p>
+    </div>
+
+    <!-- いなはまサイダー -->
+    <div class="drink-item">
+      <img src="いなはまサイダー.webp" alt="いなはまサイダー">
+      <p class="drink-catch">のみやすい「いなはまサイダー」</p>
+    </div>
+
+  </div>
+</section>
+  
+
+<!-- フッターのSNSアイコン -->
+    <div class="sns-footer">
+        <!-- Instagramボタン -->
+        <a href="https://www.instagram.com/your_account" class="instagram-btn" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <!-- Twitterボタン -->
+        <a href="https://twitter.com/your_account" class="fa-brands fa-twitter"></a>
+
+        <!-- Facebookアイコン -->
+        <a href="https://www.facebook.com" class="fb-icon" target="_blank" rel="noopener noreferrer">
+            f
+        </a>
+    </div>
+
+    <!-- 著作権フッター（SNSの下に置く） -->
+    <footer class="site-footer">
+        <p>© 2026 魚のてっぺん | Cookie 利用について</p>
+    </footer>
+    <!-- /bodyの直前に*/  -->
+<script src="javascript.js"></script>  
+</body>
+</html>

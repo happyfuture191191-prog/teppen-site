@@ -1,0 +1,376 @@
+@charset "utf-8";
+
+/* ============================
+   フォント読み込み（共通）
+============================ */
+@font-face {
+  font-family: '玉ねぎ楷書激無料版v7改';
+  src: url('./fonts/OnionKaiso.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'YasashisaGothic';
+  src: url("fonts/YasashisaGothic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ほのか新丸ゴシック";
+  src: url("fonts/Honoka-Shin-Maru-Gothic_R.ttf") format("truetype");
+}
+
+/* ============================
+   背景・body（共通）
+============================ */
+body {
+  background-image: url(漁船と夕日2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  background-attachment: fixed;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.6;
+  background-image: url('漁船と夕日2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  z-index: -1;
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(2px);
+}
+
+/* ===========================
+   共通ロゴエリア
+=========================== */
+
+/* ロゴ全体の横並びレイアウト */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;              /* ロゴ・テキスト・魚拓の間隔 */
+    padding: 25px 0;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+/* ロゴ画像（てっぺん金ロゴ） */
+.logo img {
+    width: 100px;
+    height: auto;
+}
+/*角丸は “1つの箱” に対して効く今までは .logo が “画像＋テキスト＋画像” の3つを含んでいた
+だから角丸が見えなかった。画像だけを .logo-img-wrap に入れることでその箱だけを丸められる*/
+
+.logo-img-wrap {
+    overflow: hidden;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.logo-img-wrap img {
+    width: 140px;
+    height: auto;
+    display: block;
+}
+
+/* キャッチコピー */
+.logo-text {
+    font-family: "玉ねぎ楷書激無料版v7改", serif;   /* てっぺんで使用している和風フォント */
+    font-size: 2.2rem;
+    color: #e1ded2;                     /* 上品な金色 */
+    white-space: nowrap;                /* 改行させない */
+    /* 黒縁（アウトライン） */
+    text-shadow:
+        2px 2px 0 #000,
+        -1px 1px 0 #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000;
+}
+
+/* 魚拓アイコン */
+.fish-icon {
+    height: auto;
+    width: 280px !important;            /*important消すと鯛魚拓の大小を操作できなくなる*/
+    object-fit: contain;
+}
+
+.fish-wrap {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;   /* ←これが決定打 */
+}
+
+/* ===========================
+   スマホ対応
+=========================== */
+@media (max-width: 600px) {
+    .logo {
+    overflow: hidden;      
+    border-radius: 6px;    /* 親に角丸を付ける */
+    display: inline-block; /* 画像サイズにフィットさせる */
+}
+
+.logo img {
+    width: 85px;
+    display: block;        /* 余白を消す */
+}
+
+    .fish-icon {
+        height: 55px;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+}
+
+/* ============================
+   見出し（h1/h2/h3）
+============================ */
+h1,
+h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #ffffff;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+h3 {
+  font-size: 22px;
+  color: #ffffff;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+.menu-btn,
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 28px;
+    border-radius: 8px;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000; /* 黒文字 */
+
+    background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+    text-decoration: none;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.2s ease;
+}
+
+.menu-btn:hover,
+.cta-button:hover {
+    background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
+    transform: translateY(-2px);
+}
+
+.pickup-item,
+.drink-item {
+    background: rgba(0, 0, 0, 0.35); /* 薄黒い半透明 */
+    border-radius: 14px;
+    padding: 18px;
+    backdrop-filter: blur(4px); /* ほんのり高級感 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    text-align: center;
+}
+
+.pickup-item h3,
+.pickup-item p,
+.drink-item p {
+    color: #fff; /* 白文字で読みやすく */
+}
+
+/* ============================
+   SNS フッター
+============================ */
+.sns-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 30px 0;
+  position: static;
+  bottom: 0;
+  left: 0;
+}
+
+.instagram-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 107%,
+      #fdf497 0%, #fdf497 5%,
+      #fd5949 45%, #d6249f 60%,
+      #285AEB 90%);
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.instagram-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.fa-twitter {
+  font-size: 48px;
+  color: #1DA1F2;
+  transition: color 0.3s;
+}
+
+.fa-twitter:hover {
+  color: #0d8ddb;
+}
+
+.fb-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #1877F2;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.fb-icon:hover {
+  filter: brightness(1.1);
+}
+
+/* ============================
+   著作権フッター
+============================ */
+.site-footer {
+  text-align: center;
+  font-size: 14px;
+  color: black;
+  background: white;
+  padding-bottom: 20px;
+}
+
+/* ============================
+   フッター（別バージョン）
+============================ */
+.site-footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* ============================
+   ハンバーガーメニュー
+============================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.hamburger {
+  width: 35px;
+  height: 28px;
+  position: fixed; /*右上に固定*/
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1100;
+
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  margin: 6px 0;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  z-index: 900;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 220px;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  padding-top: 80px;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.nav ul li {
+  margin: 20px 0;
+}
+
+.nav ul li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+/* ============================
+   ハンバーガーメニュー（開閉用）
+============================ */
+
+/* ナビを開く */
+.nav.show {
+  right: 0;
+}
+
+/* オーバーレイを表示 */
+#overlay.show {
+  display: block;
+}
+

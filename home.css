@@ -1,0 +1,225 @@
+/* ============================
+   スライドショー
+============================ */
+.slideshow-container {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; /* ← これが決定打 */
+  pointer-events: none;
+}
+
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: fade 15s infinite;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* 各スライドの表示タイミング */
+.slide:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.slide:nth-child(3) {
+  animation-delay: 10s;
+}
+
+@keyframes fade {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  33% { opacity: 1; }
+  53% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================
+   メニューボタン
+============================ */
+.top-buttons {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.menu-btn {
+  display: inline-block;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #2b2b2b;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 2px;
+
+  /* 和紙の立体感を出す */
+  box-shadow:
+      inset 0 1px 2px rgba(255,255,255,0.4),
+      0 4px 12px rgba(0,0,0,0.45);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: 0.25s ease;
+}
+
+.menu-btn:hover {
+  background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
+  transform: translateY(-3px);
+  box-shadow:
+      inset 0 1px 2px rgba(255,255,255,0.5),
+      0 6px 16px rgba(0,0,0,0.55);
+}
+
+/* ============================
+   店舗外観セクション
+============================ */
+.store-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+.store-photo {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.store-concept {
+  margin-top: 20px;
+  font-size: 18px;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+  text-align: center;
+}
+
+
+/* ============================
+   店舗情報
+============================ */
+.store-info {
+  text-align: center;
+  margin: 40px auto;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+
+.page-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.tel-block {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.tabelog-btn {
+  display: inline-block;
+  padding: 14px 26px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  border-radius: 8px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.tabelog-btn:hover {
+  background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
+  transform: translateY(-2px);
+}
+
+
+/* ============================
+   Googleマップ
+============================ */
+.map-wrap {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.map-wrap iframe {
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+}
+
+
+/* ============================
+   人気メニュー
+============================ */
+.pickup-menu {
+  text-align: center;
+  margin: 40px auto;
+}
+
+.pickup-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.pickup-item img {
+  width: 100%;
+  border-radius: 10px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.price {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+
+/* ============================
+   地元ドリンク
+============================ */
+.local-drinks {
+  text-align: center;
+  margin: 40px auto;
+}
+
+.drink-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.drink-item img {
+  width: 180px;
+  border-radius: 10px;
+}
+
+.drink-catch {
+  margin-top: 10px;
+  font-size: 18px;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}

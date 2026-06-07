@@ -1,0 +1,1009 @@
+@charset "utf-8";  /*@charset はCSS の一番最初の文字でなければならない*/
+
+@font-face {
+  font-family: '玉ねぎ楷書激無料版v7改';
+  src: url('./fonts/OnionKaiso.ttf') format('truetype');
+}
+body {
+    background-image: url(漁船と夕日2.jpg); /* 画像のパス */
+    background-size: cover;                  /* 全面に拡大縮小 */
+    background-repeat: no-repeat;            /* 繰り返さない */
+    background-position: center;             /* 中央寄せ */
+    height: 100vh;                           /*画面の高さが100%となりフルスクリーンでの表示が可能*/
+    position: relative;                      /*疑似要素 ::after を body の中に固定するために必須*/
+    background-attachment: fixed;            /*背景をどれだけスクロールしても固定 */
+}
+/*opacityを使うとbodyの文字や画像まで全部透けるので::afterに背景画像を入れて透過*/
+/*opacity をbody本体ではなく、背景専用の疑似要素（::after）にだけかけること*/
+body::after { /*bodyと::afterはスペース空けない!*/
+  content: "";                               /*content がないと ::after は“存在しない”扱いになる、つまり下記のpositionから下が全て無効になる*/
+  position: fixed;                           /*背景の半透明をページ最下部までかけ続ける*/
+  inset: 0; /* top:0; left:0; width:100%; height:100%; と同じ */
+  opacity: 0.6;                              /*::after {　にopacity 使う*/
+  background-image: url('漁船と夕日2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  z-index: -1;  /* ← 本文より後ろに配置 */
+  background: rgba(255,255,255,0.4); /* 半透明の白を重ねる */
+  backdrop-filter: blur(2px); /* ぼかしも可能 */
+}
+/*てっぺんロゴのボタン四隅の角度を8pxと丸くした*/
+.logo {
+  border-radius: 8px; /*予約ボタンは四隅丸くなったのにロゴはtext-align使ってからこれだけ反映されてない*/
+  text-align: left; /*何故かこれで真ん中や右にはいくが調整できないのはテキストやインライン要素の水平方向の揃え位置を決めるだけだから*/
+  overflow: hidden;
+  padding-left: 60px; /* ← 左寄せしつつ少し左側に余白を入れる */
+  display: flex;      /*画像と文字が横並びになる*/
+  display: flex;          /* ← これを追加 */
+  align-items: center;    /* ← 縦位置を揃える */
+  gap: 10px;              /* ← 画像と文字の間の余白 */
+  margin-bottom: 15px;   /* ← スライドショーの写真との間に余白ができる */
+}
+.logo img {
+  border-radius: 8px;
+  width: 150px;
+  display: inline-block; /* 中央寄せと相性が良い */
+}
+.logo-text {
+  font-size: 2.6rem !important;
+  font-weight: 600;
+  color: #fff;
+  font-family: '玉ねぎ楷書激無料版v7改';
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+  letter-spacing: 1px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #111;
+  color: #fff;
+  position: relative;
+}
+
+.fish-icon {             /*このサイズがベスト、てっぺんロゴが負けてしまう*/
+    width: 310px;        /* 横をしっかり広げる */
+    height: 270px;       /* ← 縦も増やして“縮んだ感”を消す */
+    opacity: 0.95;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.45));
+    mix-blend-mode: multiply;
+    margin-left: -60px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 60px;
+    text-decoration: none; /* 下線を消す */
+    color: inherit;        /* 文字色をそのまま */
+    cursor: pointer;       /* ホバーで指マーク */
+}
+
+/* ヘッダー全体 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #111;
+    color: #fff;
+}
+
+/* 左側：ロゴ画像＋キャッチコピー */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-text {
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 2.5px;    /*文字同士の間隔*/
+}
+
+/* ハンバーガーを右上に重ねる */
+.header {
+    position: absolute;
+    top: 25px;               /*ハンバーガーメニューの上下位置*/
+    right: 10px;             /*メニューの右間隔調整*/
+    background: transparent; /* ←黒帯を消す */
+    z-index: 1000;
+}
+
+/* ハンバーガーアイコン */
+.hamburger {
+    width: 30px;           /*三本線の幅*/
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 4px;           /*三本線の太さ*/
+    margin: 6px 0;         /*三本線の間隔*/
+    background: #d33d10; /* 金色 */
+    transition: 0.4s;
+}
+
+/* ① 1本目 → 斜め45度に */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+/* ② 真ん中 → 消える */
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+/* ③ 3本目 → 斜め-45度に */
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* 開閉メニュー */
+.nav {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 250px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9); /* ← 白＋半透明 */
+  color: #333;
+  backdrop-filter: blur(4px); /* ← 和紙風の柔らかい雰囲気 */
+  padding-top: 80px;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.nav.show {
+  right: 0;
+}
+
+.nav a {
+    color: #2f2a2a;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  z-index: 900;
+}
+
+#overlay.show {
+  display: block;
+}
+
+/* 写真の下に2つのボタンを横並び */
+.top-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+/* メニューを見るボタン（今のデザインを引き継ぎ） */
+.menu-btn {
+ display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  background: linear-gradient(45deg, #d4af37, #f7e98e); /* 通常の金色 */
+  color: #000;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: background 0.3s ease, color 0.3s ease; /* ← ふわっと変わる */
+}
+
+.menu-btn:hover {
+  background: linear-gradient(135deg, #ffcc33, #d4a017); /* 少し濃い金色 */
+  color: #fff; /* 白文字に変化 */
+  /* transform を削除 → カクカクしなくなる */
+}
+
+/* 予約ボタン（今の色をそのまま使用） */
+.reserve-btn {
+  padding: 12px 20px;
+  background-color: #ec7b4a;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+  transition: 0.2s;
+}
+
+.reserve-btn:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+/*スライドショーの画面枠の大きさ*/
+.slideshow-container {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+}
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: fade 15s infinite;
+  text-align: center;
+}
+/*各スライドショーの表示タイミング？*/
+.slide:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.slide:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.slide:nth-child(3) {
+  animation-delay: 10s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+  }
+  53% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 店の外観セクション */
+.store-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* 外観写真 */
+.store-photo {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  margin-bottom: 20px;
+}
+
+@font-face {
+  font-family: 'YasashisaGothic';
+  src: url("fonts/YasashisaGothic.ttf") format("truetype");
+  font-display: swap;
+}
+
+
+/*なぜ「uzura.ttf.ttf」じゃないと読み込まれなかったのか？
+理由はシンプルで：
+
+✔ 実際のファイル名が「uzura.ttf.ttf」になっているから
+Windows の設定で「拡張子を表示しない」になっていると、
+
+表示：uzura.ttf
+
+実際：uzura.ttf.ttf
+
+という状態が普通に起きる。
+
+つまり、あなたが見ている名前は 拡張子を隠した “見かけの名前” で、
+CSS が参照しているのは 本当のファイル名。*/
+/* 見出しフォント読み込み */
+
+
+
+.tabelog-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-family: "Honoka Maru Gothic", sans-serif;
+  color: #b48a3d; /* 和モダンの金色 */
+  border: 2px solid #b48a3d;
+  border-radius: 30px;
+  background-color: rgba(255,255,255,0.85); /* 白ベースで控えめ */
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.tabelog-btn:hover {
+  background-color: #b48a3d; /* 金色に反転 */
+  color: #fff; /* 白文字 */
+}
+
+.tabelog-link a {
+  color: #ffffff; /* 白文字 */
+}
+
+
+/*下にも.page-tittle{ で指定してあるから被ると思ってこれを消すと何故かアクセスが左寄り*/
+.page-title {
+  text-align: center;
+}
+
+/* h1（アクセスページの大見出し） */
+h1 {
+  font-family: 'ほのか新丸ゴシック', sans-serif;
+  font-size: 28px;
+  color: #ffffff;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+/* h2（店舗情報・人気メニューなどの中見出し） */
+h2 {
+  font-size: 28px;
+  color: #ffffff;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+/* h3（メニュー名などの小見出し） */
+h3 {
+  font-size: 22px;
+  color: #ffffff;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+/* コンセプト文 */
+.store-concept p {
+  font-family: 'YasashisaGothic', sans-serif;
+  font-size: 25px;
+  color: #333;
+  margin-bottom: 10px;
+  text-shadow: 
+    0.8px 0.8px 0 floralwhite,
+    -0.8px 0.8px 0 floralwhite,
+    0.8px -0.8px 0 floralwhite,
+    -0.8px -0.8px 0 floralwhite;
+}
+
+/* 店舗情報セクション全体を中央揃え */
+.store-info {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* h2 見出し（アクセスと同じスタイル） */
+.store-info h2 {
+  font-family: 'HonokaMaruGothic', sans-serif;
+  font-size: 28px;
+  color: #ffffff;
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* 店舗情報の本文（p） */
+.store-info p {
+  font-family: 'HonokaMaruGothic', sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -2px 0 #000,
+    -2px -2px 0 #000;
+  margin: 6px 0;
+}
+
+/* 食べログリンクの行だけ少し余白 */
+.store-info .tabelog-link {
+  margin-top: 15px;
+}
+
+/*「店舗情報」を「アクセス」「人気メニュー」の親要素h1 page-tittleに統一して書体を同じに*/
+.page-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 8px #000;
+}
+
+.map-wrap {
+  width: 500px;
+  max-width: 800px;
+  height: 250px;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.pickup-menu {
+  text-align: center;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+.pickup-menu h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.pickup-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.pickup-item {
+  width: 220px;
+  background: rgba(0,0,0,0.4);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* 共通：写真サイズ統一 */
+.pickup-item img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* 焼きはまぐり（2番目）と唐揚げ（4番目）だけ下に寄せる */
+.pickup-item:nth-child(2) img {
+  object-position: 110% 2%; /* ← ここが“少し下げる”ポイント */
+}
+.pickup-item:nth-child(4) img {
+  object-position: 50% 27%; /* ← ここが“少し下げる”ポイント */
+}
+
+.pickup-item h3 {
+  margin: 10px 0 5px;
+  font-size: 20px;
+}
+
+.price {
+  font-size: 18px;
+  color: #ffd700;
+}
+
+.local-drinks {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.drink-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+  font-family: "ほのか新丸ゴシック";
+  src: url("fonts/Honoka-Shin-Maru-Gothic_R.ttf") format("truetype");
+}
+
+.drink-catch {
+    font-family: "ほのか新丸ゴシック", sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #3a2f22;
+    line-height: 1.4;
+}
+
+.drink-item {
+    width: 160px;
+    background: rgba(255, 255, 255, 0.85); /* 和紙っぽい白（半透明） */
+    backdrop-filter: blur(3px); /* ほんのり和紙感 */
+    padding: 18px;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    border: 1px solid #e6e2da;
+}
+
+.drink-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* ← いなはまサイダー基準の比率 */
+    object-fit: cover;   /* ← スマックの横広さを自然にトリミング */
+    border-radius: 12px;
+}
+
+.drink-item p {
+    margin-top: 12px;
+    font-size: 16px;
+    color: #4a3f2f;
+    font-family: "Honoka Maru Gothic", sans-serif;
+}
+
+/* SNSアイコンをまとめて中央揃え＋最下部に配置 */
+.sns-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* 中央揃え */
+  gap: 40px;               /* アイコン同士の間隔 */
+  padding: 30px 0;
+  position:  static;         /* 画面下に固定したくない場合はstaticで普通のフッターに戻る */
+  bottom: 0;
+  left: 0;
+}
+/*インスタのボタン*/
+.instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 107%, 
+        #fdf497 0%, #fdf497 5%, 
+        #fd5949 45%, #d6249f 60%, 
+        #285AEB 90%);
+    color: white;
+    font-size: 28px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+  }
+/* インスタのホバー時のアニメーション */
+.instagram-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+/*ツイッターのアイコンを大きくした*/
+.fa-twitter {
+  font-size: 48px;
+  color: #1DA1F2;
+  transition: color 0.3s;
+}
+/* フェイスブックのホバー時のアニメーション */
+.fa-twitter:hover {
+  color: #0d8ddb;
+}
+/*フェイスブックのアイコン*/
+.fb-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #1877F2; /* Facebookブルー */
+  border-radius: 8px;        /* 角丸 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.2s;
+}
+/*フェイスブックのホバー時のアニメーション*/
+.fb-icon:hover {
+  filter: brightness(1.1);
+}
+/* 著作権フッター */
+.site-footer {
+  text-align: center;
+  font-size: 14px;
+  color: black;
+  background: white;
+  padding-bottom: 20px;
+}
+/*.menu-link のCSSは、今の teppen.css の “一番下に追加する” のが最適。
+理由はシンプルで、
+①既存のどのブロックにも属さない「新しい要素」だから ②他のスタイルに干渉しない　③後から探しやすい
+/*.menu-link は新規追加の要素で、他のスタイルと関係しない
+1⃣CSS は下に書いたものが優先される
+2⃣途中に入れると、後ろのスタイルに上書きされる可能性がある
+3⃣あなたの CSS はセクションごとにまとまっているので、最後に置くのが一番自然*/
+/* メニューページへのリンク */
+
+
+
+/*☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ menu.html ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ */
+
+
+
+.menu-link a {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 10px 0 20px;
+    font-size: 12px;
+    color: white;
+    background: linear-gradient(135deg, #d4a017, #b8860b); /* 金色グラデ */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px; /* 予約ボタンと統一 */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+    transition: 0.2s ease;
+}
+
+/* ホバー時のアニメーション */
+.menu-link a:hover {
+    background: linear-gradient(135deg, #ffcc33, #d4a017);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+/* メニュー全体の余白 */
+.menu-container {
+    padding: 20px 40px;
+}
+
+/* カテゴリタイトル */
+.menu-title {
+    font-size: 28px;
+    margin: 30px 0 10px;
+    font-family: '玉ねぎ楷書激無料版v7改';
+    color: #333;
+    text-shadow: 1px 1px 0 #fff;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* カードを横並びにする */
+.menu-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* メニューカード */
+.menu-card {
+    width: 250px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 200px;      /* 好きな高さに統一（例：200px） */
+    object-fit: cover;  /* 中央でトリミングして統一感を出す */
+    border-radius: 10px;
+}
+
+.menu-card h3 {
+    margin: 10px 0 5px;
+    font-size: 20px;
+}
+
+.menu-card p {
+    font-size: 18px;
+    color: #444;
+}
+
+/* 2列レイアウト（左1つ、右1つ） */
+.menu-grid {
+    display: flex;
+    justify-content: center; /* ← これで中央揃え */
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* 右側だけ縦に2つ並べる */
+.menu-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/*説明文の行間を追加して上品に*/
+
+.desc {
+  line-height: 1.6;
+}
+
+
+
+/* ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ 店舗情報ページ 全体 ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ */
+
+
+
+/*店舗情報ページの「ホーム」「メニュー」「店舗情報」 の文字リンクが全部消える*/
+/* ============================
+   基本情報（dl）
+============================ */
+.store-page {
+    max-width: 500px;   /* ← ページ幅を決める（お好みで1200pxでもOK） */
+    margin: 0 auto;      /* ← 左右中央寄せの決め手 */
+    padding: 20px;       /* ← 端にくっつかないよう余白 */
+    font-family: "Honoka Maru Gothic", sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.store-hero p {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #fff;
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.8),
+        -2px -2px 4px rgba(0,0,0,0.8);
+}
+
+.store-info-block h2 {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #fff;
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.8),
+        -2px -2px 4px rgba(0,0,0,0.8);
+}
+
+.store-subtitle {
+  font-size: 1.6rem;   /* 基本情報と同じ大きさ */
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.8),
+        -2px -2px 4px rgba(0,0,0,0.8);
+}
+
+.store-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+/* dt（項目名）も dd と同じ影を付けて統一 */
+.store-info-list dt {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #fff;
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.8),
+        -2px -2px 4px rgba(0,0,0,0.8);
+}
+
+/* dd（内容） */
+.store-info-list dd {
+    margin-left: 0;
+    line-height: 1.6;
+    color: #fff;
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.8),
+        -2px -2px 4px rgba(0,0,0,0.8);
+}
+
+.store-access h2 {
+  font-weight: bold;
+    margin-bottom: 4px;
+    color: #fff;
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.8),
+        -2px -2px 4px rgba(0,0,0,0.8);
+}
+
+/* 電話番号リンク（読みやすい金色に） */
+.tel-link {
+    color: #c9a063;
+    display: inline-block;
+    font-size: 1.6rem;          /* 必要に応じて調整 */
+    font-weight: 700;
+    color: #c9a063;             /* 既存の金色 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.35);  /* うっすら黒帯 */
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+/* ============================
+   店内ギャラリー（座席写真）
+============================ */
+.store-gallery h2{
+  font-weight: bold;
+    margin-bottom: 4px;
+    color: #fff;
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.8),
+        -2px -2px 4px rgba(0,0,0,0.8);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-grid figure {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 3;                   /*アスペクト比(縦横比)を16;9で統一*/ 
+    overflow: hidden;        
+}
+
+.gallery-grid figcaption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+
+    background: rgba(255, 255, 255, 0.8); /* メニューと同じ白半透明 */
+    padding: 6px 12px;
+    border-radius: 8px;
+
+    font-weight: bold;
+    color: #333;
+    font-size: 1rem;
+
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25); /* メニューカードと同じ影 */
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 70%; /* 写真を上下に少しズラす（微調整したい場合） */
+}
+
+/* ============================
+   食べログリンク
+============================ */
+.tabelog-area {
+    margin: 20px 0 40px;
+}
+
+.tabelog-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c9a063;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.tabelog-link:hover {
+    opacity: 0.8;
+}
+
+/* ============================
+   店内ギャラリー
+============================ */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.gallery-grid figcaption {
+    text-align: center;
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* ============================
+   アクセス（地図）
+============================ */
+.map-wrap {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 30px; /* ← これが重要 */
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-wrap iframe {
+    width: 100%;
+    height: 340px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.access-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #b86131;
+}
+
+.access-text p {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #fff;
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,0.8),
+        -2px -2px 4px rgba(0,0,0,0.8);
+}
+/* ============================
+   フッター
+============================ */
+.site-footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    color: #777;
+    font-size: 0.9rem;
+}
+/* ============================
+   スマホ最適化（480px以下）
+============================ */
+@media (max-width: 480px) {
+    .menu-card {
+        width: 100%;
+        max-width: 340px;
+        padding: 14px;
+        margin: 0 auto 24px;
+        min-height: 360px; /* 写真の高さに合わせて調整 */
+    }
+
+    .menu-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+}

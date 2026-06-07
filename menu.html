@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>メニュー | てっぺん</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="menu.css">  <!-- 最後に読み込む！ -->
+</head>
+
+<body>
+
+    <!-- ロゴ（ホームに戻るリンク付き） -->
+    <div class="logo">
+    <a href="home.html" class="logo-img-wrap">
+        <img src="てっぺん金ロゴ.jpg" alt="ロゴ">
+    </a>
+
+    <span class="logo-text">メニュー一覧</span>
+
+    <div class="fish-wrap">
+        <img src="鯛魚拓編集済.png" class="fish-icon" alt="魚アイコン">
+    </div>
+</div>
+
+    <header class="header">
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+        <div id="overlay"></div> 
+
+        <nav class="nav" id="nav">
+            <ul>
+                <li><a href="home.html">ホーム</a></li>
+                <li><a href="menu.html">メニュー</a></li>
+                <li><a href="shop.html">店舗情報</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- メニュー全体のコンテナ -->
+    <div class="menu-container">
+
+        <!-- 刺身カテゴリ -->
+        <h2 class="menu-title">刺身</h2>
+        <div class="menu-grid">
+            <!-- 左側：大きい1枚 -->
+            <div class="menu-card">
+                <img src="刺身盛り合わせ.webp" alt="刺身盛り合わせ">
+                <h3>刺身盛り合わせ</h3>
+                <p>￥1,200～</p>
+                <p class="desc sashimi-desc">厳選された海の幸をふんだんに
+                    盛り合わせした豪華な一皿。特別な日にぴったりです。</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="てっぺんブリの刺身.jpg" alt="ブリの刺身">
+                <h3>ブリの刺身</h3>
+                <p>￥1,000～</p>
+                <p class="desc hamaguri-desc">しっとりとした身に上品な脂が広がるブリの刺身。
+噛むほどに深まる甘みとコクを、ゆったりと味わえる一皿です。</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="てっぺん真鯛.jpg" alt="真鯛">
+                <h3>真鯛の刺身</h3>
+                 <p>￥900～</p>
+                 <p class="desc madai-desc">淡い桜色の身に、やさしい甘みが広がる真鯛の刺身。
+                ほどよい弾力と清らかな旨みを、ゆったりとお楽しみください。</p>
+            </div>
+
+            <div class="menu-card">
+                 <img src="てっぺん鰹.jpg" alt="鰹">
+                 <h3>本日のおすすめ刺身</h3>
+                 <p>￥900～</p>
+                 <p class="desc madai-desc">南伊勢から届く朝獲れ鮮魚を、その日のいちばんおいしい状態で。
+                店主が目利きした“本日のおすすめ”を、ゆったりとお楽しみください。</p>
+            </div>
+
+            <div class="menu-card">
+                 <img src="てっぺん鰹.jpg" alt="鰹">
+                 <h3>本日のおすすめ刺身</h3>
+                 <p>￥900～</p>
+                 <p class="desc madai-desc">南伊勢から届く朝獲れ鮮魚を、その日のいちばんおいしい状態で。
+                店主が目利きした“本日のおすすめ”を、ゆったりとお楽しみください。</p>
+            </div>
+
+            <div class="menu-card">
+                 <img src="てっぺんイカ刺身.jpg" alt="イカ">
+                 <h3>イカの刺身</h3>
+                 <p>￥900～</p>
+                 <p class="desc madai-desc">南伊勢から届く朝獲れ鮮魚を、その日のいちばんおいしい状態で。
+                店主が目利きした“本日のおすすめ”を、ゆったりとお楽しみください。</p>
+            </div>
+
+            </div>
+        
+        <h2 class="menu-title">はまぐり</h2>
+
+        <div class="menu-grid">   <!-- はまぐりのカードは menu-grid の外にあるから→ 中央揃えが効かない・左寄りになるのでmenu-grid入れる -->
+
+            <div class="menu-card">
+                <img src="てっぺんはまぐり.webp" alt="焼き蛤">
+                <h3>焼き蛤  1ヶ</h3>
+                <p>￥780</p>
+                <p class="desc hamaguri-desc">「その手は桑名の焼き蛤」と
+                    言われる程地元桑名では有名な貝です。酒蒸しにも出来ます。</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="てっぺん蛤の酒蒸し.jpg" alt="蛤の酒蒸し">
+                <h3>蛤の酒蒸し  1ヶ</h3>
+                <p>￥780</p>
+                <p class="desc hamaguri-desc">「その手は桑名の焼き蛤」と
+                    言われる程地元桑名では有名な貝です。酒蒸しにも出来ます。</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="てっぺん蛤の釜めし.jpg" alt="蛤の釜めし">
+                <h3>蛤の釜めし</h3>
+                <p>￥780</p>
+                <p class="desc hamaguri-desc">「その手は桑名の焼き蛤」と
+                    言われる程地元桑名では有名な貝です。酒蒸しにも出来ます。</p>
+            </div>
+
+        </div>
+
+        <!-- 揚げ物カテゴリ -->
+        <h2 class="menu-title">揚げ物</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <img src="てっぺん唐揚げ.jpg" alt="唐揚げ">
+                <h3>若鶏の唐揚げ</h3>
+                <p>700円</p>
+                <p class="desc karaage-desc">ふんわりやわらかい若鶏を、丁寧に揚げた優しい味わいです。</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="てっぺん天ぷら盛り合わせ.jpg" alt="天ぷら">
+                <h3>天ぷら盛り合わせ</h3>
+                <p>1,100円</p>
+                <p class="desc tempura-desc">海老や野菜などを取り入れた天ぷらの
+                    盛り合わせ。衣の香ばしさと素材の旨味を堪能できます。</p>
+            </div>
+
+        </div>
+
+         <!-- 一品料理カテゴリ -->
+        <h2 class="menu-title">一品料理</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <img src="てっぺんバリSOBAサラダ.webp" alt="バリSOBAサラダ">
+                <h3>バリSOBAサラダ</h3>
+                <p>700円</p>
+                <p class="desc bari-desc">てっぺんの名物サラダ。自家製のタルタル
+                    上げた盛岡冷麺をサラダの上に載せた、食感が楽しい一品です。</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="てっぺん鯛の釜めし.jpg" alt="鯛の釜めし">
+                <h3>鯛釜めし</h3>
+                <p>880円</p>
+                <p class="desc tamagoyaki-desc">ふんわりと焼き上げた甘めのたまご焼き。
+                    優しいだし汁とともに広がるまろやかな味わいです。</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="てっぺんクリームコロッケ.jpg" alt="カニクリームコロッケ">
+                <h3>カニクリームコロッケ</h3>
+                <p>￥700円</p>
+                <p class="desc tamagoyaki-desc">ひと口かじれば、カニの香りがふわっと広がる。
+                    とろけるクリームとサクサク衣のコントラストがたまらない
+                    贅沢コロッケです。</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="てっぺんクリームチーズ王様.jpeg" alt="クリームチーズおうさあｍ">
+                <h3>クリームチーズ王様</h3>
+                <p>￥680円</p>
+                <p class="desc tamagoyaki-desc">白いクラッカーに、濃厚なクリームチーズと
+                    とろりとした蜂蜜を添えた上品な前菜。
+                    甘みと塩気が重なり合う、ちょっと贅沢な一品です。</p>
+            </div>
+
+        </div>
+
+        <!-- アルコールカテゴリ -->
+        <h2 class="menu-title">アルコール</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <img src="三重錦.jpg" alt="三重錦">
+                <h3>三重錦</h3>
+                <p>700円</p>
+                <p>麹と米の甘味を感じさせながらもサッパリとした後口のため尾を引かないキレの良さが抜群の酒です。</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="田光.jpg" alt="田光">
+                <h3>田光</h3>
+                <p>350円</p>
+                <p>時期により最善の酒米を使用し、旨味のある酸味と様々な温度帯で楽しめる食中酒です。</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="てっぺん日本酒.jpg" alt="日本酒">
+                <h3>日本酒</h3>
+                <p>700円</p>
+                <p>時期により最善の酒米を使用し、</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="田光.jpg" alt="田光">
+                <h3>田光</h3>
+                <p>350円</p>
+                <p>時期により最善の酒米を使用し、旨味のある酸味と様々な温度帯で楽しめる食中酒です。</p>
+            </div>
+        
+            </div>
+
+        <!-- ドリンクカテゴリ -->
+        <h2 class="menu-title">ソフトドリンク</h2>
+        <div class="menu-grid">
+
+            <div class="menu-card">
+                <img src="スマックゴールド.webp" alt="スマックゴールド">
+                <h3>スマックゴールド</h3>
+                <p>350円</p>
+            </div>
+
+            <div class="menu-card">
+                <img src="いなはまサイダー.webp" alt="いなはまサイダー">
+                <h3>いなはまサイダー</h3>
+                <p>350円</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <p>© 2026 魚のてっぺん | メニュー</p>
+    </footer>
+<script src="javascript.js"></script>  <!-- bodyの直前に*/ -->
+</body>
+</html>
