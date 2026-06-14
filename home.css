@@ -1,15 +1,14 @@
 /* ============================
-   スライドショー
+   ① スライドショー（HOME専用）
 ============================ */
 .slideshow-container {
   width: 100%;
   height: 60vh;
   position: relative;
   overflow: hidden;
-  z-index: 1; /* ← これが決定打 */
+  z-index: 1;
   pointer-events: none;
 }
-
 
 .slide {
   position: absolute;
@@ -23,18 +22,9 @@
   pointer-events: none;
 }
 
-/* 各スライドの表示タイミング */
-.slide:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.slide:nth-child(2) {
-  animation-delay: 5s;
-}
-
-.slide:nth-child(3) {
-  animation-delay: 10s;
-}
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 5s; }
+.slide:nth-child(3) { animation-delay: 10s; }
 
 @keyframes fade {
   0% { opacity: 0; }
@@ -51,43 +41,22 @@
 }
 
 /* ============================
-   メニューボタン
+   ② メニューボタン（HOME専用）
 ============================ */
 .top-buttons {
   text-align: center;
   margin: 20px 0;
 }
 
-.menu-btn {
-  display: inline-block;
+/* menu-btn は common.css にあるので差分のみ */
+.top-buttons .menu-btn {
   padding: 16px 32px;
-  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
-  color: #2b2b2b;
-  border-radius: 6px;
   font-size: 20px;
-  font-weight: 600;
-  text-decoration: none;
   letter-spacing: 2px;
-
-  /* 和紙の立体感を出す */
-  box-shadow:
-      inset 0 1px 2px rgba(255,255,255,0.4),
-      0 4px 12px rgba(0,0,0,0.45);
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  transition: 0.25s ease;
-}
-
-.menu-btn:hover {
-  background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
-  transform: translateY(-3px);
-  box-shadow:
-      inset 0 1px 2px rgba(255,255,255,0.5),
-      0 6px 16px rgba(0,0,0,0.55);
 }
 
 /* ============================
-   店舗外観セクション
+   ③ 店舗外観セクション
 ============================ */
 .store-section {
   display: flex;
@@ -110,15 +79,20 @@
   text-align: center;
 }
 
-
 /* ============================
-   店舗情報
+   ④ 店舗情報
 ============================ */
 .store-info {
   text-align: center;
   margin: 40px auto;
   color: white;
   text-shadow: 1px 1px 3px black;
+}
+
+/*店舗情報の h1 だけ “白文字＋影” を強制的に解除する*/
+.store-info h1 {
+  color: #2A2A2A; /* common.css と同じ */
+  text-shadow: none;
 }
 
 .page-title {
@@ -138,10 +112,8 @@
   font-size: 18px;
   font-weight: bold;
   color: #000;
-
   background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
   border-radius: 8px;
-
   box-shadow: 0 4px 12px rgba(0,0,0,0.35);
   text-decoration: none;
   transition: 0.25s ease;
@@ -152,9 +124,8 @@
   transform: translateY(-2px);
 }
 
-
 /* ============================
-   Googleマップ
+   ⑤ Googleマップ
 ============================ */
 .map-wrap {
   text-align: center;
@@ -167,9 +138,8 @@
   border-radius: 10px;
 }
 
-
 /* ============================
-   人気メニュー
+   ⑥ 人気メニュー（HOME専用）
 ============================ */
 .pickup-menu {
   text-align: center;
@@ -184,6 +154,7 @@
   margin: auto;
 }
 
+/* 画像サイズだけ HOME専用 */
 .pickup-item img {
   width: 100%;
   border-radius: 10px;
@@ -191,14 +162,14 @@
   object-fit: cover;
 }
 
+/* price は共通化推奨 */
 .price {
   font-size: 20px;
   margin-top: 5px;
 }
 
-
 /* ============================
-   地元ドリンク
+   ⑦ 地元ドリンク（HOME専用）
 ============================ */
 .local-drinks {
   text-align: center;
@@ -222,4 +193,54 @@
   font-size: 18px;
   color: white;
   text-shadow: 1px 1px 3px black;
+}
+
+/* ============================
+   ⑧スマホ用（768px以下）
+============================ */
+@media screen and (max-width: 768px) {
+  .slideshow-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .slideshow-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* pickup-menu の上下余白 */
+  .pickup-menu {
+    padding: 20px 0 25px;
+  }
+
+  /* pickup-menu のタイトル余白 */
+  .pickup-menu .section-title {
+    margin: 15px 0 10px;
+  }
+
+  /* カード間の余白（もし .pickup-item があるなら） */
+  .pickup-item {
+    margin-bottom: 20px;
+  }
+
+  /* 人気メニュー画像を4:3で統一 */
+  .pickup-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* ← 4:3で統一 */
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* セクションタイトルの余白統一 */
+  .section-title {
+    margin: 20px 0 10px;
+  }
+
+  /* 店舗情報リンク（shop.htmlへの導線） */
+  .shop-link-area {
+    margin: 20px 0 30px;
+  }
 }

@@ -1,7 +1,24 @@
 @charset "utf-8";
 
 /* ============================
-   フォント読み込み（共通）
+   ① 変数（色・フォント・余白）
+============================ */
+:root {
+  --color-bg: #ffffff;
+  --color-main: #0a1a2f;   /* 深い紺 */
+  --color-accent: #d4af37; /* 金 */
+  --color-text: #333333;
+
+  --font-main: "Noto Serif JP", serif;
+  --font-sub: "Noto Sans JP", sans-serif;
+
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 32px;
+}
+
+/* ============================
+   ② フォント読み込み
 ============================ */
 @font-face {
   font-family: '玉ねぎ楷書激無料版v7改';
@@ -20,9 +37,15 @@
 }
 
 /* ============================
-   背景・body（共通）
+   ③ body（背景含む）※統合済み
 ============================ */
 body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background: var(--color-bg);
+  margin: 0;
+  padding: 0;
+
   background-image: url(漁船と夕日2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -46,28 +69,162 @@ body::after {
   backdrop-filter: blur(2px);
 }
 
-/* ===========================
-   共通ロゴエリア
-=========================== */
+/* ============================
+   ④ レイアウト（container）
+============================ */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-/* ロゴ全体の横並びレイアウト */
+/* ============================
+   ⑤ 見出し（和モダン × 海鮮 × 上品）
+============================ */
+
+/* h1：ページの顔（上品な金ライン） */
+h1 {
+  font-family: var(--font-main);
+  font-size: 2.2rem;
+  color: #2A2A2A;
+  text-align: center;
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 8px;
+  margin: 40px 0 24px;
+  letter-spacing: 0.08em;
+}
+
+/* h2：セクション見出し（左に金ライン） */
+h2 {
+  font-family: var(--font-sub);
+  font-size: 1.6rem;
+  color: #333;
+  border-left: 4px solid var(--color-accent);
+  padding-left: 12px;
+  margin: 32px 0 16px;
+  letter-spacing: 0.08em;
+}
+
+/* h3：小見出し（薄い下線） */
+h3 {
+  font-family: var(--font-sub);
+  font-size: 1.2rem;
+  color: #444;
+  border-bottom: 1px solid #E5E5E5;
+  padding-bottom: 4px;
+  margin: 24px 0 12px;
+  letter-spacing: 0.08em;
+}
+
+/* ============================
+   ⑥ ボタン（共通）
+============================ */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--color-main);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--color-accent);
+}
+
+.menu-btn,
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.2s ease;
+}
+
+.menu-btn:hover,
+.cta-button:hover {
+    background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
+    transform: translateY(-2px);
+}
+
+/* ============================
+   統一ボタン（全ページ共通）
+============================ */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 28px;
+  border-radius: 8px;
+
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
+
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  text-decoration: none;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  transition: 0.25s ease;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
+  transform: translateY(-2px);
+}
+
+/* ============================
+   ⑦ pickup / drink（共通カード）
+============================ */
+.pickup-item,
+.drink-item {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 14px;
+    padding: 18px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    text-align: center;
+}
+
+.pickup-item h3,
+.pickup-item p,
+.drink-item p {
+    color: #fff;
+}
+
+/* ============================
+   ⑧ ロゴ（共通パーツ）
+============================ */
 .logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;              /* ロゴ・テキスト・魚拓の間隔 */
+    gap: 24px;
     padding: 25px 0;
     overflow: hidden;
     border-radius: 6px;
+    text-decoration: none; /* ロゴリンクの下線を消す */
 }
 
-/* ロゴ画像（てっぺん金ロゴ） */
+.logo a,
+.logo a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
 .logo img {
     width: 100px;
     height: auto;
 }
-/*角丸は “1つの箱” に対して効く今までは .logo が “画像＋テキスト＋画像” の3つを含んでいた
-だから角丸が見えなかった。画像だけを .logo-img-wrap に入れることでその箱だけを丸められる*/
 
 .logo-img-wrap {
     overflow: hidden;
@@ -81,13 +238,11 @@ body::after {
     display: block;
 }
 
-/* キャッチコピー */
 .logo-text {
-    font-family: "玉ねぎ楷書激無料版v7改", serif;   /* てっぺんで使用している和風フォント */
+    font-family: "玉ねぎ楷書激無料版v7改", serif;
     font-size: 2.2rem;
-    color: #e1ded2;                     /* 上品な金色 */
-    white-space: nowrap;                /* 改行させない */
-    /* 黒縁（アウトライン） */
+    color: #e1ded2;
+    white-space: nowrap;
     text-shadow:
         2px 2px 0 #000,
         -1px 1px 0 #000,
@@ -95,118 +250,20 @@ body::after {
         -1px -1px 0 #000;
 }
 
-/* 魚拓アイコン */
 .fish-icon {
     height: auto;
-    width: 280px !important;            /*important消すと鯛魚拓の大小を操作できなくなる*/
+    width: 250px !important;
     object-fit: contain;
 }
 
 .fish-wrap {
     display: flex;
     align-items: center;
-    flex-shrink: 0;   /* ←これが決定打 */
-}
-
-/* ===========================
-   スマホ対応
-=========================== */
-@media (max-width: 600px) {
-    .logo {
-    overflow: hidden;      
-    border-radius: 6px;    /* 親に角丸を付ける */
-    display: inline-block; /* 画像サイズにフィットさせる */
-}
-
-.logo img {
-    width: 85px;
-    display: block;        /* 余白を消す */
-}
-
-    .fish-icon {
-        height: 55px;
-    }
-
-    .logo-text {
-        font-size: 1rem;
-    }
+    flex-shrink: 0;
 }
 
 /* ============================
-   見出し（h1/h2/h3）
-============================ */
-h1,
-h2 {
-  text-align: center;
-  font-size: 28px;
-  color: #ffffff;
-  margin-top: 40px;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-  text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000;
-}
-
-h3 {
-  font-size: 22px;
-  color: #ffffff;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  letter-spacing: 0.5px;
-  text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000;
-}
-
-.menu-btn,
-.cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 14px 28px;
-    border-radius: 8px;
-
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #000; /* 黒文字 */
-
-    background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
-    text-decoration: none;
-
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: 0.2s ease;
-}
-
-.menu-btn:hover,
-.cta-button:hover {
-    background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
-    transform: translateY(-2px);
-}
-
-.pickup-item,
-.drink-item {
-    background: rgba(0, 0, 0, 0.35); /* 薄黒い半透明 */
-    border-radius: 14px;
-    padding: 18px;
-    backdrop-filter: blur(4px); /* ほんのり高級感 */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-    text-align: center;
-}
-
-.pickup-item h3,
-.pickup-item p,
-.drink-item p {
-    color: #fff; /* 白文字で読みやすく */
-}
-
-/* ============================
-   SNS フッター
+   ⑨ SNS フッター
 ============================ */
 .sns-footer {
   width: 100%;
@@ -214,9 +271,6 @@ h3 {
   justify-content: center;
   gap: 40px;
   padding: 30px 0;
-  position: static;
-  bottom: 0;
-  left: 0;
 }
 
 .instagram-btn {
@@ -272,29 +326,19 @@ h3 {
 }
 
 /* ============================
-   著作権フッター
+   ⑩ フッター（1つに統一）
 ============================ */
 .site-footer {
   text-align: center;
   font-size: 14px;
   color: black;
   background: white;
-  padding-bottom: 20px;
-}
-
-/* ============================
-   フッター（別バージョン）
-============================ */
-.site-footer {
-  text-align: center;
   padding: 20px 0;
   margin-top: 40px;
-  color: #777;
-  font-size: 0.9rem;
 }
 
 /* ============================
-   ハンバーガーメニュー
+   ⑪ ハンバーガーメニュー
 ============================ */
 .header {
   position: fixed;
@@ -307,12 +351,11 @@ h3 {
 .hamburger {
   width: 35px;
   height: 28px;
-  position: fixed; /*右上に固定*/
+  position: fixed;
   top: 20px;
   right: 20px;
   cursor: pointer;
   z-index: 1100;
-
 }
 
 .hamburger span {
@@ -360,17 +403,109 @@ h3 {
   text-decoration: none;
 }
 
-/* ============================
-   ハンバーガーメニュー（開閉用）
-============================ */
-
-/* ナビを開く */
 .nav.show {
   right: 0;
 }
 
-/* オーバーレイを表示 */
 #overlay.show {
   display: block;
 }
 
+/* ============================
+   ⑫「トップへ戻る」ボタン
+============================ */
+.back-home {
+  text-align: center;
+  margin: 40px 0;
+}
+
+/* ============================
+   ⑬ スマホ対応（最後）
+============================ */
+@media (max-width: 600px) {
+  /* ヘッダー全体の余白を詰める */
+  .header {
+    padding: 8px 12px;
+  }
+
+  /* ロゴの縮小（全体バランス） */
+  .logo {
+    gap: 10px;
+    padding: 15px 0;
+  }
+
+  .logo img {
+    width: 70px;
+  }
+
+  .fish-icon {
+    width: 180px !important;
+  }
+
+  .logo-text {
+    font-size: 1.4rem;
+  }
+
+  /* ハンバーガー位置調整 */
+  .hamburger {
+    top: 12px;
+    right: 12px;
+    width: 28px;
+    height: 22px;
+  }
+
+  .hamburger span {
+    height: 3px;
+    margin: 5px 0;
+  }
+
+  /* ナビの文字サイズ調整 */
+  .nav ul li a {
+    font-size: 18px;
+    padding: 10px 0;
+  }
+
+  /* SNSフッターの余白調整 */
+  .sns-footer {
+    gap: 25px;
+    padding: 20px 0;
+  }
+
+  .instagram-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .fa-twitter {
+    font-size: 38px;
+  }
+
+  .fb-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+  }
+
+  /* コピーライト（フッター）の余白と文字サイズ → これだけに統一 */
+  .site-footer {
+    padding: 15px 0;
+    font-size: 12px;
+    margin-top: 30px;
+  }
+
+  /* セクションタイトルの余白統一 */
+  h1, h2, .section-title {
+    margin: 25px 0 12px;
+  }
+
+  /* セクション全体の上下余白 */
+  section {
+    padding: 20px 0;
+  }
+
+  /* ヘッダー直下の余白 */
+  .header + * {
+    margin-top: 70px;
+  }
+}
