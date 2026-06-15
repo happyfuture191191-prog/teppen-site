@@ -46,7 +46,7 @@ body {
   margin: 0;
   padding: 0;
 
-  background-image: url(漁船と夕日2.jpg);
+  background-image: url("./漁船と夕日2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -60,7 +60,7 @@ body::after {
   position: fixed;
   inset: 0;
   opacity: 0.6;
-  background-image: url('漁船と夕日2.jpg');
+  background-image: url("./漁船と夕日2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
@@ -420,9 +420,39 @@ h3 {
 }
 
 /* ============================
-   ⑬ スマホ対応（最後）
+   ⑬ パーツ（画像・ボタンなど）
+============================ */
+
+/* 画像の基本設定（全デバイス共通） */
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ボタンの基本設定（全デバイス共通） */
+button, .btn {
+  padding: 14px 20px;
+  font-size: 16px;
+}
+
+/* ============================
+   ⑭ セクション余白（全デバイス共通）
+============================ */
+section {
+  padding: 60px 0;
+}
+
+/* ============================
+   ⑮ スマホ対応（最後）
 ============================ */
 @media (max-width: 600px) {
+
+  /* セクション全体の上下余白 */
+  section {
+    padding: 20px 0;
+  }
+
   /* ヘッダー全体の余白を詰める */
   .header {
     padding: 8px 12px;
@@ -497,11 +527,6 @@ h3 {
   /* セクションタイトルの余白統一 */
   h1, h2, .section-title {
     margin: 25px 0 12px;
-  }
-
-  /* セクション全体の上下余白 */
-  section {
-    padding: 20px 0;
   }
 
   /* ヘッダー直下の余白 */

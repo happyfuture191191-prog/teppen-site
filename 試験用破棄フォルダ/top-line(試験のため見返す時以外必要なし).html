@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Image Example</title>
+    <style>
+        body {
+            margin: 0; /* Remove default margin */
+        }
+        img.top-image {
+            width: 180px;   /* Full width */
+            height: 90px;  /* Keep aspect ratio */
+            display: block; /* Remove bottom gap */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top image -->
+    <img src="鮭箱積み.webp" alt="Website Banner" class="top-image">
+
+    <h1>Welcome to My Website</h1>
+    <p>This is the content below the top image.</p>
+
+</body>
+</html>
+
+
+コードをコピー
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>画像と文字を横並び</title>
+<style>
+  .container {
+    display: flex;              /* 横並びにする */
+    align-items: center;        /* 縦位置を中央揃え */
+    gap: 16px;                  /* 画像と文字の間隔 */
+    flex-wrap: wrap;            /* 画面幅が狭いときは折り返す */
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .container img {
+    max-width: 200px;           /* 画像の最大幅 */
+    height: auto;               /* アスペクト比維持 */
+    border-radius: 8px;         /* 角丸（任意） */
+  }
+
+  .text {
+    flex: 1;                    /* 残りの幅を使用 */
+    min-width: 200px;           /* 折り返し時の最小幅 */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img src="てっぺんロゴ.png" alt="サンプル画像">
+  <div class="text">
+    <h2>タイトル</h2>
+    <p>
+      これはサンプルの説明文です。Flexboxを使うことで、画像と文字を簡単に横並びにできます。
+      スマホでは自動的に縦並びになります。
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
+ポイント
+display: flex で横並びにする。
+align-items: center で縦位置を中央揃え。
+gap で画像と文字の間隔を設定。
+flex-wrap: wrap を使うと、スマホなど狭い画面では自動で縦並びになる。
+画像サイズは max-width で制限し、レスポンシブ対応。
+💡 もし古いブラウザ対応や簡易的な方法が良ければ、float や display: inline-block でも実装可能ですが、
+Flexboxが最も推奨されます。
+
+もし希望があれば、このコードを画像中央寄せ＋テキスト縦中央揃えにしたバージョンも作れますが、作りますか？
+そうすれば見た目がより整います。
+
