@@ -45,8 +45,7 @@ body {
   background: var(--color-bg);
   margin: 0;
   padding: 0;
-
-  background-image: url("./漁船と夕日2.jpg");
+  background-image: url("../漁船と夕日2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -60,7 +59,7 @@ body::after {
   position: fixed;
   inset: 0;
   opacity: 0.6;
-  background-image: url("./漁船と夕日2.jpg");
+  background-image: url("../漁船と夕日2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
