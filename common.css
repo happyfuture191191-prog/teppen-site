@@ -447,6 +447,20 @@ section {
 ============================ */
 @media (max-width: 600px) {
 
+  body {
+    background-attachment: scroll;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  body::after {
+    opacity: 0.3;
+  }
+
+  img {
+    object-fit: contain !important;
+  }
+
   /* セクション全体の上下余白 */
   section {
     padding: 20px 0;
@@ -464,7 +478,7 @@ section {
   }
 
   .logo img {
-    width: 70px;
+    width: 90px;
   }
 
   .fish-icon {
@@ -486,6 +500,10 @@ section {
   .hamburger span {
     height: 3px;
     margin: 5px 0;
+  }
+
+  iframe {
+   width: 100% !important;
   }
 
   /* ナビの文字サイズ調整 */
