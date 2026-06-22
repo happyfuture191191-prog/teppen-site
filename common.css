@@ -25,17 +25,6 @@
   src: url('./fonts/OnionKaiso.ttf') format('truetype');
 }
 
-@font-face {
-  font-family: 'YasashisaGothic';
-  src: url("fonts/YasashisaGothic.ttf") format("truetype");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "ほのか新丸ゴシック";
-  src: url("fonts/Honoka-Shin-Maru-Gothic_R.ttf") format("truetype");
-}
-
 /* ============================
    ③ body（背景含む）※統合済み
 ============================ */
@@ -549,5 +538,53 @@ section {
   /* ヘッダー直下の余白 */
   .header + * {
     margin-top: 70px;
+  }
+}
+
+/* ============================
+   ⑯ ロゴがスマホで切れないようにする修正
+============================ */
+@media (max-width: 600px) {
+
+  /* 全画像に contain をかけるのを無効化（ロゴだけ上書き） */
+  .logo img,
+  .fish-icon {
+    object-fit: contain !important;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+  }
+
+  /* ロゴを縦並びにして高さを確保 */
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 0;
+  }
+
+  /* 金ロゴのサイズ調整 */
+  .logo-img-wrap img {
+    width: 85px;
+    height: auto;
+  }
+
+  /* キャッチコピーの文字サイズ */
+  .logo-text {
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* 鯛魚拓のサイズ調整 */
+  .fish-icon {
+    height: 55px;
+    width: auto;
+  }
+
+  /* ヘッダー直下の margin-top がロゴに当たらないように無効化 */
+  .header + .logo {
+    margin-top: 0 !important;
   }
 }
