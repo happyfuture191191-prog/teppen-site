@@ -597,3 +597,22 @@ section {
     margin-top: 0 !important;
   }
 }
+
+/* ============================
+   ⑰ スマホで玉ねぎ楷書を強制適用
+============================ */
+@media (max-width: 600px) {
+
+  .logo-text {
+    font-family: "玉ねぎ楷書激無料版v7改" !important;
+    font-size: 1.3rem !important;
+    color: #fff !important;
+    text-shadow:
+      1px 1px 0 #000,
+      -1px 1px 0 #000,
+      1px -1px 0 #000,
+      -1px -1px 0 #000 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+}
