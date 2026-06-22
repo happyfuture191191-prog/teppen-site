@@ -546,43 +546,49 @@ section {
 ============================ */
 @media (max-width: 600px) {
 
-  /* ロゴ全体を縦並びにして高さを確保 */
+  /* ロゴ全体のレイアウト */
   .logo {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 6px !important;
-    padding: 10px 0 !important;
+    gap: 8px !important;
+    padding: 12px 0 !important;
   }
 
-  /* 金ロゴ */
+  /* 金ロゴを大きめに */
   .logo-img-wrap img {
-    width: 85px !important;
+    width: 120px !important;   /* ← ここで大きさ調整 */
     height: auto !important;
     object-fit: contain !important;
   }
 
-  /* キャッチコピー（フォントが変わらないように完全上書き） */
+  /* キャッチコピーのフォントをスマホでも固定 */
   .logo-text {
     font-family: '玉ねぎ楷書激無料版v7改' !important;
-    font-size: 1.1rem !important;
+    font-size: 1.3rem !important;   /* ← 少し大きく */
     color: #fff !important;
     text-shadow:
       1px 1px 0 #000,
       -1px 1px 0 #000,
       1px -1px 0 #000,
       -1px -1px 0 #000 !important;
-    line-height: 1.3 !important;
     text-align: center !important;
+    line-height: 1.3 !important;
     white-space: nowrap !important;
   }
 
-  /* 鯛魚拓 */
+  /* 鯛魚拓をしっかり大きく表示 */
   .fish-icon {
-    height: 55px !important;
+    height: 90px !important;   /* ← ここで大きさ調整 */
     width: auto !important;
     object-fit: contain !important;
+  }
+
+  /* 既存のスマホCSSの上書き */
+  .logo img,
+  .fish-icon {
+    max-width: 100% !important;
   }
 
   /* ヘッダー直下の margin-top を無効化 */
