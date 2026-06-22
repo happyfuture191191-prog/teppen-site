@@ -552,8 +552,8 @@ section {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 8px !important;
-    padding: 12px 0 !important;
+    gap: 10px !important;
+    padding: 15px 0 !important;
   }
 
   /* 金ロゴを大きめに */
@@ -576,11 +576,12 @@ section {
     text-align: center !important;
     line-height: 1.3 !important;
     white-space: nowrap !important;
+    display: block !important;
   }
 
   /* 鯛魚拓をしっかり大きく表示 */
   .fish-icon {
-    height: 90px !important;   /* ← ここで大きさ調整 */
+    height: 120px !important;   /* ← ここで大きさ調整 */
     width: auto !important;
     object-fit: contain !important;
   }
