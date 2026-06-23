@@ -23,9 +23,9 @@
 @font-face {
   font-family: '玉ねぎ楷書激無料版v7改';
   font-family: '玉ねぎ楷書激無料版v7改';
-  src: url('./fonts/玉ねぎ楷書激無料版v7改.woff2') format('woff2'),
-       url('./fonts/玉ねぎ楷書激無料版v7改.woff') format('woff'),
-       url('./fonts/玉ねぎ楷書激無料版v7改.ttf') format('truetype');
+  src: url('./fonts/玉ねぎ楷書激無料版v7改.woff2v=3') format('woff2'),
+       url('./fonts/玉ねぎ楷書激無料版v7改.woffv=3') format('woff'),
+       url('./fonts/玉ねぎ楷書激無料版v7改.ttfv=3') format('truetype');
   font-display: swap;
 }
 
