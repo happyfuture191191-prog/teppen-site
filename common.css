@@ -436,53 +436,50 @@ section {
 }
 
 /* ============================
-   ⑮ スマホ対応（最後）
+   ⑮ スマホ最適化（600px以下）
+   ※ 全スマホ調整を1つに統合
 ============================ */
 @media (max-width: 600px) {
 
+  /* 背景 */
   body {
     background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
     height: auto;
     min-height: 100vh;
   }
 
   body::after {
-    opacity: 0.3;
+    opacity: 0.35;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(2px);
   }
 
+  /* 画像の基本 */
   img {
-    object-fit: contain !important;
+    object-fit: contain;
   }
 
-  /* セクション全体の上下余白 */
+  /* セクション余白 */
   section {
     padding: 20px 0;
   }
 
-  /* ヘッダー全体の余白を詰める */
+  h1, h2, .section-title {
+    margin: 24px 0 12px;
+  }
+
+  .header + * {
+    margin-top: 70px;
+  }
+
+  /* ヘッダー・ハンバーガー */
   .header {
     padding: 8px 12px;
   }
 
-  /* ロゴの縮小（全体バランス） */
-  .logo {
-    gap: 10px;
-    padding: 15px 0;
-  }
-
-  .logo img {
-    width: 90px;
-  }
-
-  .fish-icon {
-    width: 180px !important;
-  }
-
-  .logo-text {
-    font-size: 1.4rem;
-  }
-
-  /* ハンバーガー位置調整 */
   .hamburger {
     top: 12px;
     right: 12px;
@@ -495,17 +492,51 @@ section {
     margin: 5px 0;
   }
 
-  iframe {
-   width: 100% !important;
-  }
-
-  /* ナビの文字サイズ調整 */
   .nav ul li a {
     font-size: 18px;
     padding: 10px 0;
   }
 
-  /* SNSフッターの余白調整 */
+  /* ロゴ（スマホ最適化） */
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 0;
+  }
+
+  .logo-img-wrap img {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .fish-icon {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .logo-text {
+    font-family: "玉ねぎ楷書激無料版v7改";
+    font-size: 1.3rem;
+    color: #fff;
+    text-shadow:
+      1px 1px 0 #000,
+      -1px 1px 0 #000,
+      1px -1px 0 #000,
+      -1px -1px 0 #000;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1.3;
+    display: block;
+  }
+
+  /* SNS */
   .sns-footer {
     gap: 25px;
     padding: 20px 0;
@@ -527,117 +558,32 @@ section {
     font-size: 26px;
   }
 
-  /* コピーライト（フッター）の余白と文字サイズ → これだけに統一 */
+  /* フッター */
   .site-footer {
     padding: 15px 0;
     font-size: 12px;
     margin-top: 30px;
   }
 
-  /* セクションタイトルの余白統一 */
-  h1, h2, .section-title {
-    margin: 25px 0 12px;
+  /* Google Map */
+  iframe {
+    width: 100%;
   }
 
-  /* ヘッダー直下の余白 */
-  .header + * {
-    margin-top: 70px;
-  }
-}
-
-/* ============================
-   ⑯ ロゴがスマホで切れない＆フォントが崩れない最終修正
-============================ */
-@media (max-width: 600px) {
-
-  /* ロゴ全体のレイアウト */
-  .logo {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    padding: 15px 0 !important;
+  /* 料理写真（メニュー） → 4:3で統一 */
+  .pickup-item img,
+  .menu-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
   }
 
-  /* 金ロゴを大きめに */
-  .logo-img-wrap img {
-    width: 120px !important;   /* ← ここで大きさ調整 */
-    height: auto !important;
-    object-fit: contain !important;
-  }
-
-  /* キャッチコピーのフォントをスマホでも固定 */
-  .logo-text {
-    font-family: '玉ねぎ楷書激無料版v7改' !important;
-    font-size: 1.3rem !important;   /* ← 少し大きく */
-    color: #fff !important;
-    text-shadow:
-      1px 1px 0 #000,
-      -1px 1px 0 #000,
-      1px -1px 0 #000,
-      -1px -1px 0 #000 !important;
-    text-align: center !important;
-    line-height: 1.3 !important;
-    white-space: nowrap !important;
-    display: block !important;
-  }
-
-  /* 鯛魚拓をしっかり大きく表示 */
-  .fish-icon {
-    height: 120px !important;   /* ← ここで大きさ調整 */
-    width: auto !important;
-    object-fit: contain !important;
-  }
-
-  /* 既存のスマホCSSの上書き */
-  .logo img,
-  .fish-icon {
-    max-width: 100% !important;
-  }
-
-  /* ヘッダー直下の margin-top を無効化 */
-  .header + .logo {
-    margin-top: 0 !important;
-  }
-}
-
-/* ============================
-   スマホで玉ねぎ楷書を完全固定
-============================ */
-@media (max-width: 600px) {
-  .logo-text {
-    font-family: "玉ねぎ楷書激無料版v7改" !important;
-    font-size: 1.3rem !important;
-    color: #fff !important;
-    text-shadow:
-      1px 1px 0 #000,
-      -1px 1px 0 #000,
-      1px -1px 0 #000,
-      -1px -1px 0 #000 !important;
-    white-space: nowrap !important;
-    text-align: center !important;
-    line-height: 1.3 !important;
-    display: block !important;
-  }
-
-  /* セクションタイトルの余白統一 */
-  h1, h2, .section-title {
-    margin: 24px 0 12px;
-  }
-
-  /* セクション全体の上下余白 */
-  section {
-    padding: 20px 0;
-  }
-
-  /* ヘッダー直下の余白（固定ヘッダー対策） */
-  .header + * {
-    margin-top: 70px;
-  }
-
-  /* フッター前の余白 */
-  .site-footer {
-    margin-top: 30px;
+  /* 店舗写真（外観・内観） → 全体を見せる */
+  .store-photo,
+  .shop-photo {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
   }
 }
