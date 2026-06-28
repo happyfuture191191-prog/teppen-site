@@ -448,12 +448,13 @@ section {
   /* 背景 */
   body {
     background-attachment: scroll;
-    background-size: contain;
+    background-size: auto;
     background-position: center top;
     background-repeat: no-repeat;
     height: auto;
     min-height: 100vh;
     background-color: transparent; /* ← 画像を隠さない */
+    background-image: none;
   }
 
   body::after {
