@@ -487,17 +487,23 @@ section {
   position: fixed;
   inset: 0;
   z-index: -1;
-
   background-image: url("/sunset_boat2.jpg");
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: contain; /* PCは比率を守る */
+  background-size: contain;
 }
 
 /* スマホだけ画面いっぱいにする */
 @media (max-width: 600px) {
   .bg-fixed {
-    background-size: cover !important; /* スマホは画面いっぱい */
+    background-size: cover !important;
     background-position: center top !important;
   }
+}
+
+/* ★ 白膜を完全に消す（最重要） */
+body::after {
+  background: none !important;
+  opacity: 0 !important;
+  backdrop-filter: none !important;
 }
