@@ -53,7 +53,6 @@ body::after {
   position: fixed;
   inset: 0;
   opacity: 0.6;
-  background-image: none;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
@@ -452,7 +451,6 @@ section {
     background-position: top;
     height: auto;
     min-height: 100vh;
-    background-image: none; /* ← これが決定打！ */
     background-color: #f5f5f5; /* ← 薄いグレーで高級感を維持 */
   }
 
