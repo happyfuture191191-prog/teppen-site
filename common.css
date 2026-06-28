@@ -603,7 +603,7 @@ section {
 
   background-image: url("/sunset_boat2.jpg");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain; /* ← 比率を守る */
+  background-position: center top;
+  background-size: cover; 
 }
 }
