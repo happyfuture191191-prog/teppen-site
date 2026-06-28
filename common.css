@@ -448,7 +448,7 @@ section {
   /* 背景 */
   body {
     background-attachment: scroll;
-    background-size: auto;
+    background-size: contain;
     background-position: center top;
     background-repeat: no-repeat;
     height: auto;
@@ -461,7 +461,6 @@ section {
     opacity: 0;
     backdrop-filter: none;
     background-image: none;
-  }
 
   /* 画像の基本 */
   img {
@@ -591,26 +590,5 @@ section {
     width: 100%;
     object-fit: contain;
     border-radius: 10px;
-  }
-
-/* ============================
-   ⑯ 背景レイヤー（全ページ共通）
-============================ */
-.bg-fixed {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-
-  background-image: url("/sunset_boat2.jpg");
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: contain; /* ← PCは比率を守る */
-}
-
-/* スマホだけ画面いっぱいにする */
-@media (max-width: 600px) {
-  .bg-fixed {
-    background-size: cover !important; /* ← スマホは画面いっぱい */
-    background-position: center top !important; /* ← 上を基準に見せる */
   }
 }
