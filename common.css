@@ -452,10 +452,12 @@ section {
     background-position: center;
     height: auto;
     min-height: 100vh;
+    background-image: none; /* ← これが決定打！ */
+    background-color: #f5f5f5; /* ← 薄いグレーで高級感を維持 */
   }
 
   body::after {
-    opacity: 0.45;
+    opacity: 0.55;
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(1px);
