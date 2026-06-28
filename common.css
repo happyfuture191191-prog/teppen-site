@@ -604,6 +604,13 @@ section {
   background-image: url("/sunset_boat2.jpg");
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: cover; 
+  background-size: contain; /* ← PCは比率を守る */
 }
+
+/* スマホだけ画面いっぱいにする */
+@media (max-width: 600px) {
+  .bg-fixed {
+    background-size: cover !important; /* ← スマホは画面いっぱい */
+    background-position: center top !important; /* ← 上を基準に見せる */
+  }
 }
