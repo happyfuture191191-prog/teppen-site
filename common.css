@@ -455,7 +455,7 @@ section {
   }
 
   body::after {
-    opacity: 0.25;
+    opacity: 0.45;
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(1px);
