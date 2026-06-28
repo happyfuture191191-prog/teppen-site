@@ -448,7 +448,7 @@ section {
   /* 背景 */
   body {
     background-attachment: scroll;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     height: auto;
     min-height: 100vh;
@@ -457,7 +457,7 @@ section {
   }
 
   body::after {
-    opacity: 0.55;
+    opacity: 0.5;
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(1px);
