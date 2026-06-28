@@ -441,6 +441,7 @@ section {
 
 /* ============================
    ⑮ スマホ最適化（600px以下）
+   ※ 全スマホ調整を1つに統合
 ============================ */
 @media (max-width: 600px) {
 
@@ -452,12 +453,11 @@ section {
     background-repeat: no-repeat;
     height: auto;
     min-height: 100vh;
-    background-color: transparent;
-    background-image: none;
+    background-color: transparent; /* ← 画像を隠さない */
   }
 
   body::after {
-    background-color: transparent;
+    background-color: transparent; /* ← 白膜を消す */
     opacity: 0;
     backdrop-filter: none;
     background-image: none;
@@ -473,12 +473,125 @@ section {
     padding: 20px 0;
   }
 
-  /* ロゴなどスマホ調整いろいろ */
-  .logo { … }
-  .store-photo { … }
-  .shop-photo { … }
+  h1, h2, .section-title {
+    margin: 24px 0 12px;
+  }
 
-} /* ← スマホCSSはここで閉じる！！ */
+  .header + * {
+    margin-top: 70px;
+  }
+
+  /* ヘッダー・ハンバーガー */
+  .header {
+    padding: 8px 12px;
+  }
+
+  .hamburger {
+    top: 12px;
+    right: 12px;
+    width: 28px;
+    height: 22px;
+  }
+
+  .hamburger span {
+    height: 3px;
+    margin: 5px 0;
+  }
+
+  .nav ul li a {
+    font-size: 18px;
+    padding: 10px 0;
+  }
+
+  /* ロゴ（スマホ最適化） */
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 0;
+  }
+
+  .logo-img-wrap img {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .fish-icon {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .logo-text {
+    font-family: "玉ねぎ楷書激無料版v7改";
+    font-size: 1.3rem;
+    color: #fff;
+    text-shadow:
+      1px 1px 0 #000,
+      -1px 1px 0 #000,
+      1px -1px 0 #000,
+      -1px -1px 0 #000;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 1.3;
+    display: block;
+  }
+
+  /* SNS */
+  .sns-footer {
+    gap: 25px;
+    padding: 20px 0;
+  }
+
+  .instagram-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .fa-twitter {
+    font-size: 38px;
+  }
+
+  .fb-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+  }
+
+  /* フッター */
+  .site-footer {
+    padding: 15px 0;
+    font-size: 12px;
+    margin-top: 30px;
+  }
+
+  /* Google Map */
+  iframe {
+    width: 100%;
+  }
+
+  /* 料理写真（メニュー） → 4:3で統一 */
+  .pickup-item img,
+  .menu-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* 店舗写真（外観・内観） → 全体を見せる */
+  .store-photo,
+  .shop-photo {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+  }
 
 /* ============================
    ⑯ 背景レイヤー（全ページ共通）
@@ -487,23 +600,17 @@ section {
   position: fixed;
   inset: 0;
   z-index: -1;
+
   background-image: url("/sunset_boat2.jpg");
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: contain;
+  background-size: contain; /* ← PCは比率を守る */
 }
 
 /* スマホだけ画面いっぱいにする */
 @media (max-width: 600px) {
   .bg-fixed {
-    background-size: cover !important;
-    background-position: center top !important;
+    background-size: cover !important; /* ← スマホは画面いっぱい */
+    background-position: center top !important; /* ← 上を基準に見せる */
   }
-}
-
-/* ★ 白膜を完全に消す（最重要） */
-body::after {
-  background: none !important;
-  opacity: 0 !important;
-  backdrop-filter: none !important;
 }
