@@ -244,6 +244,8 @@
   .store-info-block {
     padding: 15px;
     margin: 20px auto;
+    background: rgba(255,255,255,0.15); /* ← これを追加すると赤が消える */
+    backdrop-filter: blur(3px); /* ← 文字が読みやすくなる */
   }
 
   .store-info-list div {
