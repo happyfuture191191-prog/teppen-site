@@ -53,6 +53,7 @@ body::after {
   position: fixed;
   inset: 0;
   opacity: 0.6;
+  background-image: none;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
@@ -458,6 +459,7 @@ section {
     background-size: cover;
     background-position: center;
     backdrop-filter: blur(1px);
+    background-image: none;
   }
 
   /* 画像の基本 */
