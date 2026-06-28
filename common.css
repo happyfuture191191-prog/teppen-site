@@ -452,7 +452,7 @@ section {
     background-position: center;
     height: auto;
     min-height: 100vh;
-    background-color: #f5f5f5; /* ← 薄いグレーで高級感を維持 */
+    background-color: transparent/* ← 薄いグレーで高級感を維持 */
   }
 
   body::after {
@@ -461,6 +461,9 @@ section {
     background-position: center;
     backdrop-filter: blur(1px);
     background-image: none;
+    background-color: transparent !important;
+    opacity: 0 !important;
+    backdrop-filter: none !important;
   }
 
   /* 画像の基本 */
