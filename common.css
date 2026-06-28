@@ -461,6 +461,7 @@ section {
     opacity: 0;
     backdrop-filter: none;
     background-image: none;
+  }
 
   /* 画像の基本 */
   img {
@@ -591,4 +592,18 @@ section {
     object-fit: contain;
     border-radius: 10px;
   }
+
+/* ============================
+   ⑯ 背景レイヤー（全ページ共通）
+============================ */
+.bg-fixed {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background-image: url("/sunset_boat2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* ← 比率を守る */
+}
 }
