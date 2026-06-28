@@ -211,36 +211,36 @@
     object-fit: cover;
   }
 
-  /* pickup-menu の上下余白 */
+  .store-section,
+  .store-info,
+  .map-wrap,
+  .pickup-menu,
+  .local-drinks {
+    margin: 60px auto;
+  }
+
   .pickup-menu {
-    padding: 20px 0 25px;
+    margin: 60px auto;
+    padding: 0;
   }
 
-  /* pickup-menu のタイトル余白 */
-  .pickup-menu .section-title {
-    margin: 15px 0 10px;
-  }
-
-  /* カード間の余白（もし .pickup-item があるなら） */
   .pickup-item {
     margin-bottom: 20px;
   }
 
-  /* 人気メニュー画像を4:3で統一 */
   .pickup-item img {
     width: 100%;
-    aspect-ratio: 4 / 3; /* ← 4:3で統一 */
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 10px;
   }
 
-  /* セクションタイトルの余白統一 */
-  .section-title {
-    margin: 20px 0 10px;
+  .section-title,
+  .page-title {
+    margin: 0 0 24px;
   }
 
-  /* 店舗情報リンク（shop.htmlへの導線） */
   .shop-link-area {
     margin: 20px 0 30px;
   }
-}
+} /* ← これで閉じる！ */
