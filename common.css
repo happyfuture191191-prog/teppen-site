@@ -452,14 +452,14 @@ section {
     background-position: center;
     height: auto;
     min-height: 100vh;
-    background-color: transparent !important; /* ← 画像を隠さない */
+    background-color: transparent; /* ← 画像を隠さない */
   }
 
   body::after {
-    background-color: transparent !important; /* ← 白膜を消す */
-    opacity: 0 !important;
-    backdrop-filter: none !important;
-    background-image: none !important;
+    background-color: transparent; /* ← 白膜を消す */
+    opacity: 0;
+    backdrop-filter: none;
+    background-image: none;
 
   /* 画像の基本 */
   img {
