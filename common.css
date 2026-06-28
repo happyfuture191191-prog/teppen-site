@@ -74,6 +74,10 @@ body::after {
 /* ============================
    ⑤ 見出し（和モダン × 海鮮 × 上品）
 ============================ */
+h1, h2, h3 {
+  letter-spacing: 0.08em;
+  margin: 32px 0 16px;
+}
 
 /* h1：ページの顔（上品な金ライン） */
 h1 {
@@ -451,15 +455,15 @@ section {
   }
 
   body::after {
-    opacity: 0.35;
+    opacity: 0.25;
     background-size: cover;
     background-position: center;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(1px);
   }
 
   /* 画像の基本 */
   img {
-    object-fit: contain;
+    object-fit: cover;
   }
 
   /* セクション余白 */

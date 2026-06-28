@@ -117,6 +117,7 @@
   width: 100%;
   border-radius: 10px;
   object-fit: cover;
+  aspect-ratio: 4 / 3;
 }
 
 .gallery-grid figcaption {
@@ -261,7 +262,7 @@
 
   .store-info-list dd {
     width: 65%;
-    text-align: right;
+    text-align: left;
     line-height: 1.6; /* ← 行間を追加 */
   }
 
@@ -303,17 +304,8 @@
   }
 }
 
-
 /* ============================
-   ⑧ アクセス店内の雰囲気をどうしても黒字にするため最後にもってきた
-============================ */
-.section-title {
-  color: #333 !important;
-  text-shadow: none !important;
-}
-
-/* ============================
-   ⑨ 読みやすさ最終調整（追加）
+   ⑧ 読みやすさ最終調整（追加）
 ============================ */
 
 /* 見出しの統一：基本は黒、基本情報だけ白 */

@@ -126,16 +126,9 @@
 
   /* カード幅をスマホ用に */
   .menu-card {
-    width: 280px;
-    max-width: 350px;
-    margin-bottom: 20px; /* ← 追加 */
-  }
-
-  /* 画像の高さを可変に */
-  .menu-card img {
-    height: auto;
-    max-height: 200px;
-    object-fit: cover;
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 20px;
   }
 
   /* 説明文と値段の文字サイズ調整 */
