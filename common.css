@@ -448,8 +448,8 @@ section {
   /* 背景 */
   body {
     background-attachment: scroll;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: top;
     height: auto;
     min-height: 100vh;
     background-image: none; /* ← これが決定打！ */
