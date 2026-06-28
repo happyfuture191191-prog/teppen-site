@@ -448,19 +448,21 @@ section {
   /* 背景 */
   body {
     background-attachment: scroll;
-    background-size: contain;
-    background-position: center top;
-    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     height: auto;
     min-height: 100vh;
-    background-color: transparent; /* ← 画像を隠さない */
+    background-image: none; /* ← これが決定打！ */
+    background-color: #f5f5f5; /* ← 薄いグレーで高級感を維持 */
   }
 
   body::after {
-    background-color: transparent; /* ← 白膜を消す */
-    opacity: 0;
-    backdrop-filter: none;
+    opacity: 0.5;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(1px);
     background-image: none;
+  }
 
   /* 画像の基本 */
   img {
