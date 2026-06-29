@@ -444,6 +444,7 @@ section {
 ============================ */
 @media (max-width: 600px) {
 
+  /* 背景の高さバグ修正 */
   body {
     background-attachment: scroll;
     background-size: cover;
@@ -452,41 +453,44 @@ section {
     min-height: 100vh;
   }
 
+  /* 白レイヤーをスマホでも薄く残す（完全に消すと崩れる） */
   body::after {
-    opacity: 0;
-    backdrop-filter: none;
+    opacity: 0.15;              /* ← PCより薄く */
+    backdrop-filter: blur(1px); /* ← ぼかし弱め */
+    background-color: rgba(255,255,255,0.25);
     background-image: none;
   }
 
-  img { object-fit: cover; }
-  section { padding: 20px 0; }
+  /* 画像の切れ防止（cover → contain） */
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* ← これが重要 */
+  }
 
-  .logo { … }
-  .store-photo { … }
-  .shop-photo { … }
+  /* セクション余白をスマホ向けに最適化 */
+  section {
+    padding: 24px 0;
+  }
 
-} /* ← スマホCSSはここで完全に閉じる！！ */
+  /* ロゴの最適化 */
+  .logo img {
+    width: 80px;
+  }
 
+  .logo-text {
+    font-size: 1.8rem;
+  }
 
-/* ============================
-   ⑯ 背景レイヤー（全ページ共通）
-============================ */
-.bg-fixed {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
+  .fish-icon {
+    width: 180px !important;
+  }
 
-  background-image: url("/sunset_boat2.jpg");
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: contain; /* PCは比率を守る */
-}
-
-
-/* スマホだけ画面いっぱいにする */
-@media (max-width: 600px) {
-  .bg-fixed {
-    background-size: cover !important;
-    background-position: center top !important;
+  /* 店舗写真の横切れ防止 */
+  .store-photo,
+  .shop-photo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }
