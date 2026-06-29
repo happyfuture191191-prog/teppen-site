@@ -1,0 +1,247 @@
+/* ============================
+   ① スライドショー（HOME専用）
+============================ */
+.slideshow-container {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: fade 15s infinite;
+  text-align: center;
+  pointer-events: none;
+}
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 5s; }
+.slide:nth-child(3) { animation-delay: 10s; }
+
+@keyframes fade {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  33% { opacity: 1; }
+  53% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================
+   ② メニューボタン（HOME専用）
+============================ */
+.top-buttons {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* menu-btn は common.css にあるので差分のみ */
+.top-buttons .menu-btn {
+  padding: 16px 32px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+/* ============================
+   ③ 店舗外観セクション
+============================ */
+.store-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+.store-photo {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.store-concept {
+  margin-top: 20px;
+  font-size: 18px;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+  text-align: center;
+}
+
+/* ============================
+   ④ 店舗情報
+============================ */
+.store-info {
+  text-align: center;
+  margin: 40px auto;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+
+/*店舗情報の h1 だけ “白文字＋影” を強制的に解除する*/
+.store-info h1 {
+  color: #2A2A2A; /* common.css と同じ */
+  text-shadow: none;
+}
+
+.page-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.tel-block {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.tabelog-btn {
+  display: inline-block;
+  padding: 14px 26px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.tabelog-btn:hover {
+  background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
+  transform: translateY(-2px);
+}
+
+/* ============================
+   ⑤ Googleマップ
+============================ */
+.map-wrap {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.map-wrap iframe {
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+}
+
+/* ============================
+   ⑥ 人気メニュー（HOME専用）
+============================ */
+.pickup-menu {
+  text-align: center;
+  margin: 40px auto;
+}
+
+.pickup-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* 画像サイズだけ HOME専用 */
+.pickup-item img {
+  width: 100%;
+  border-radius: 10px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* price は共通化推奨 */
+.price {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+/* ============================
+   ⑦ 地元ドリンク（HOME専用）
+============================ */
+.local-drinks {
+  text-align: center;
+  margin: 40px auto;
+}
+
+.drink-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.drink-item img {
+  width: 180px;
+  border-radius: 10px;
+}
+
+.drink-catch {
+  margin-top: 10px;
+  font-size: 18px;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+
+/* ============================
+   ⑧スマホ用（768px以下）
+============================ */
+@media screen and (max-width: 768px) {
+  .slideshow-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .slideshow-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .store-section,
+  .store-info,
+  .map-wrap,
+  .pickup-menu,
+  .local-drinks {
+    margin: 60px auto;
+  }
+
+  .pickup-menu {
+    margin: 60px auto;
+    padding: 0;
+  }
+
+  .pickup-item {
+    margin-bottom: 20px;
+  }
+
+  .pickup-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .section-title,
+  .page-title {
+    margin: 0 0 24px;
+  }
+
+  .shop-link-area {
+    margin: 20px 0 30px;
+  }
+} /* ← これで閉じる！ */
+ 

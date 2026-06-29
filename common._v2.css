@@ -1,0 +1,496 @@
+@charset "utf-8";
+
+/* ============================
+   ① 変数（色・フォント・余白）
+============================ */
+:root {
+  --color-bg: #ffffff;
+  --color-main: #0a1a2f;   /* 深い紺 */
+  --color-accent: #d4af37; /* 金 */
+  --color-text: #333333;
+
+  --font-main: "Noto Serif JP", serif;
+  --font-sub: "Noto Sans JP", sans-serif;
+
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 32px;
+}
+
+/* ============================
+   ② フォント読み込み
+============================ */
+@font-face {
+  font-family: '玉ねぎ楷書激無料版v7改';
+  font-family: '玉ねぎ楷書激無料版v7改';
+  src: url('./fonts/玉ねぎ楷書激無料版v7改.woff2?v=3') format('woff2'),
+       url('./fonts/玉ねぎ楷書激無料版v7改.woff?v=3') format('woff'),
+       url('./fonts/玉ねぎ楷書激無料版v7改.ttf?v=3') format('truetype');
+  font-display: swap;
+}
+
+/* ============================
+   ③ body（背景含む）※統合済み
+============================ */
+body {
+  font-family: var(--font-main);
+  color: var(--color-main);
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  background-image: url("/teppen-site/sunset_boat2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  background-attachment: fixed;
+}
+
+/*body の上に重ねる透明なレイヤー（もう1枚の背景）」を作るための仕組み*/
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.6;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  z-index: -1;
+  background-color: rgba(255,255,255,0.4); /* ← これに変更！ */
+  backdrop-filter: blur(2px);
+}
+
+/* ============================
+   ④ レイアウト（container）
+============================ */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================
+   ⑤ 見出し（和モダン × 海鮮 × 上品）
+============================ */
+h1, h2, h3 {
+  letter-spacing: 0.08em;
+  margin: 32px 0 16px;
+}
+
+/* h1：ページの顔（上品な金ライン） */
+h1 {
+  font-family: var(--font-main);
+  font-size: 2.2rem;
+  color: #2A2A2A;
+  text-align: center;
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 8px;
+  margin: 40px 0 24px;
+  letter-spacing: 0.08em;
+}
+
+/* h2：セクション見出し（左に金ライン） */
+h2 {
+  font-family: var(--font-sub);
+  font-size: 1.6rem;
+  color: #333;
+  border-left: 4px solid var(--color-accent);
+  padding-left: 12px;
+  margin: 32px 0 16px;
+  letter-spacing: 0.08em;
+}
+
+/* h3：小見出し（薄い下線） */
+h3 {
+  font-family: var(--font-sub);
+  font-size: 1.2rem;
+  color: #444;
+  border-bottom: 1px solid #E5E5E5;
+  padding-bottom: 4px;
+  margin: 24px 0 12px;
+  letter-spacing: 0.08em;
+}
+
+/* ============================
+   ⑥ ボタン（共通）
+============================ */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--color-main);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--color-accent);
+}
+
+.menu-btn,
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.2s ease;
+}
+
+.menu-btn:hover,
+.cta-button:hover {
+    background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
+    transform: translateY(-2px);
+}
+
+/* ============================
+   統一ボタン（全ページ共通）
+============================ */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 28px;
+  border-radius: 8px;
+
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
+
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  text-decoration: none;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  transition: 0.25s ease;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
+  transform: translateY(-2px);
+}
+
+/* ============================
+   ⑦ pickup / drink（共通カード）
+============================ */
+.pickup-item,
+.drink-item {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 14px;
+    padding: 18px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    text-align: center;
+}
+
+.pickup-item h3,
+.pickup-item p,
+.drink-item p {
+    color: #fff;
+}
+
+/* ============================
+   ⑧ ロゴ（共通パーツ）
+============================ */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 25px 0;
+    overflow: hidden;
+    border-radius: 6px;
+    text-decoration: none; /* ロゴリンクの下線を消す */
+}
+
+.logo a,
+.logo a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+.logo-img-wrap {
+    overflow: hidden;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.logo-img-wrap img {
+    width: 140px;
+    height: auto;
+    display: block;
+}
+
+.logo-text {
+    font-family: "玉ねぎ楷書激無料版v7改", serif;
+    font-size: 2.2rem;
+    color: #e1ded2;
+    white-space: nowrap;
+    text-shadow:
+        2px 2px 0 #000,
+        -1px 1px 0 #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000;
+}
+
+.fish-icon {
+    height: auto;
+    width: 250px !important;
+    object-fit: contain;
+}
+
+.fish-wrap {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* ============================
+   ⑨ SNS フッター
+============================ */
+.sns-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 30px 0;
+}
+
+.instagram-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 107%,
+      #fdf497 0%, #fdf497 5%,
+      #fd5949 45%, #d6249f 60%,
+      #285AEB 90%);
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.instagram-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.fa-twitter {
+  font-size: 48px;
+  color: #1DA1F2;
+  transition: color 0.3s;
+}
+
+.fa-twitter:hover {
+  color: #0d8ddb;
+}
+
+.fb-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #1877F2;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.fb-icon:hover {
+  filter: brightness(1.1);
+}
+
+/* ============================
+   ⑩ フッター（1つに統一）
+============================ */
+.site-footer {
+  text-align: center;
+  font-size: 14px;
+  color: black;
+  background: white;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* ============================
+   ⑪ ハンバーガーメニュー
+============================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.hamburger {
+  width: 35px;
+  height: 28px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  margin: 6px 0;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  z-index: 900;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 220px;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  padding-top: 80px;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.nav ul li {
+  margin: 20px 0;
+}
+
+.nav ul li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav.show {
+  right: 0;
+}
+
+#overlay.show {
+  display: block;
+}
+
+/* ============================
+   ⑫「トップへ戻る」ボタン
+============================ */
+.back-home {
+  text-align: center;
+  margin: 40px 0;
+}
+
+/* ============================
+   ⑬ パーツ（画像・ボタンなど）
+============================ */
+
+/* 画像の基本設定（全デバイス共通） */
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* ボタンの基本設定（全デバイス共通） */
+button, .btn {
+  padding: 14px 20px;
+  font-size: 16px;
+}
+
+/* ============================
+   ⑭ セクション余白（全デバイス共通）
+============================ */
+section {
+  padding: 60px 0;
+}
+
+/* ============================
+   ⑮ スマホ最適化（600px以下）
+============================ */
+@media (max-width: 600px) {
+
+  /* 背景の高さバグ修正 */
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* 白レイヤーをスマホでも薄く残す（完全に消すと崩れる） */
+  body::after {
+    opacity: 0.15;              /* ← PCより薄く */
+    backdrop-filter: blur(1px); /* ← ぼかし弱め */
+    background-color: rgba(255,255,255,0.25);
+    background-image: none;
+  }
+
+  /* 画像の切れ防止（cover → contain） */
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* ← これが重要 */
+  }
+
+  /* セクション余白をスマホ向けに最適化 */
+  section {
+    padding: 24px 0;
+  }
+
+  /* ロゴの最適化 */
+  .logo img {
+    width: 100px;
+  }
+
+  .logo-text {
+    font-size: 2.2rem;
+  }
+
+  .fish-icon {
+    width: 250px !important;
+  }
+
+  /* 店舗写真の横切れ防止 */
+  .store-photo,
+  .shop-photo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
