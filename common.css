@@ -475,15 +475,15 @@ section {
 
   /* ロゴの最適化 */
   .logo img {
-    width: 80px;
+    width: 100px;
   }
 
   .logo-text {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
   .fish-icon {
-    width: 180px !important;
+    width: 250px !important;
   }
 
   /* 店舗写真の横切れ防止 */
