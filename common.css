@@ -494,3 +494,39 @@ section {
     object-fit: contain;
   }
 }
+
+/* ============================
+   ⑯ スマホ版ロゴ（全ページ共通）
+============================ */
+@media (max-width: 600px) {
+
+  /* ロゴ全体を縦並びにする */
+  .logo {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  /* 金ロゴを少し小さく */
+  .logo-img-wrap img {
+    width: 80px;
+    height: auto;
+  }
+
+  /* キャッチフレーズを折り返し可能に */
+  .logo-text {
+    font-size: 1.6rem;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.4;
+    padding: 0 10px;
+  }
+
+  /* 鯛魚拓をスマホ幅に合わせる */
+  .fish-icon {
+    width: 160px !important;
+    height: auto;
+    object-fit: contain;
+  }
+}
