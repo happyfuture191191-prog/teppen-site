@@ -247,6 +247,11 @@ h3 {
         -1px -1px 0 #000;
 }
 
+/*PCでは「南伊勢からあなたへ」と「美味しいお魚を」改行を消す*/
+.sp-br {
+    display: none;
+}
+
 .fish-icon {
     height: auto;
     width: 250px !important;
@@ -516,11 +521,16 @@ section {
 
   /* キャッチフレーズを折り返し可能に */
   .logo-text {
-    font-size: 2.2rem;
+    font-size: 2.0rem;
     text-align: center;
     white-space: normal;
-    line-height: 1.4;
-    padding: 0 10px;
+    line-height: 1.5;
+    padding: 0 20px;
+  }
+
+  /*スマホだけ「南伊勢からあなたへ」と「美味しいお魚を」の改行を表示*/
+  .sp-br {
+    display: inline;
   }
 
   /* 鯛魚拓をスマホ幅に合わせる */
