@@ -510,13 +510,13 @@ section {
 
   /* 金ロゴを少し小さく */
   .logo-img-wrap img {
-    width: 80px;
+    width: 120px;
     height: auto;
   }
 
   /* キャッチフレーズを折り返し可能に */
   .logo-text {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     text-align: center;
     white-space: normal;
     line-height: 1.4;
@@ -525,7 +525,7 @@ section {
 
   /* 鯛魚拓をスマホ幅に合わせる */
   .fish-icon {
-    width: 160px !important;
+    width: 240px;
     height: auto;
     object-fit: contain;
   }
