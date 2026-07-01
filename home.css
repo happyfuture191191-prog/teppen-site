@@ -199,7 +199,7 @@
 /* ============================
    ⑧スマホ用（768px以下）
 ============================ */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .slideshow-container {
     width: 100%;
     height: auto;

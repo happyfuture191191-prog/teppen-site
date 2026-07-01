@@ -105,7 +105,7 @@
 /* ============================
    ⑧ スマホ対応
 ============================ */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
 
   /* コンテナの余白調整 */
   .menu-container {

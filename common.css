@@ -447,7 +447,7 @@ section {
 /* ============================
    ⑮ スマホ最適化（768px以下）
 ============================ */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
 body {
     background-image: url("/teppen-site/sunset_boat2_sp_1080x1920.png");
@@ -499,7 +499,7 @@ body {
 /* ============================
    ⑯ スマホ版ロゴ（全ページ共通）
 ============================ */
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
 
   /* ロゴ全体を縦並びにする */
   .logo {

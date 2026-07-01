@@ -226,7 +226,7 @@
    ⑦ スマホ対応
 ============================ */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
 
   /* 外観写真タイトル */
   .store-subtitle {
@@ -322,7 +322,7 @@
 }
 
 /* スマホ版 dt の余白を統一 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .store-info-list dt {
     margin-bottom: 6px; /* ← これに統一 */
   }
