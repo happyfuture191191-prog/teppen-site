@@ -7,7 +7,7 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .slide {
@@ -19,7 +19,8 @@
   opacity: 0;
   animation: fade 15s infinite;
   text-align: center;
-  pointer-events: none;
+  pointer-events: auto;
+  position: absolute;
 }
 
 .slide:nth-child(1) { animation-delay: 0s; }
