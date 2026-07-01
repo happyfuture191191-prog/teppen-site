@@ -445,9 +445,9 @@ section {
 }
 
 /* ============================
-   ⑮ スマホ最適化（600px以下）
+   ⑮ スマホ最適化（768px以下）
 ============================ */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
 body {
     background-image: url("/teppen-site/sunset_boat2_sp_1080x1920.png");
