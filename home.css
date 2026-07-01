@@ -211,6 +211,10 @@
     object-fit: cover;
   }
 
+  .slide {
+    animation: fade 15s infinite;
+  }
+
   .store-section,
   .store-info,
   .map-wrap,
