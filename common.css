@@ -449,36 +449,33 @@ section {
 ============================ */
 @media (max-width: 600px) {
 
-  /* 背景の高さバグ修正 */
-  body {
+body {
+    background-image: url("/teppen-site/sunset_boat2_sp_1080x1920.png");
     background-attachment: scroll;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     height: auto;
     min-height: 100vh;
   }
 
-  /* 白レイヤーをスマホでも薄く残す（完全に消すと崩れる） */
   body::after {
-    opacity: 0.15;              /* ← PCより薄く */
-    backdrop-filter: blur(1px); /* ← ぼかし弱め */
+    opacity: 0.15;
+    backdrop-filter: blur(1px);
     background-color: rgba(255,255,255,0.25);
     background-image: none;
   }
 
-  /* 画像の切れ防止（cover → contain） */
   img {
     width: 100%;
     height: auto;
-    object-fit: contain; /* ← これが重要 */
+    object-fit: contain;
   }
 
-  /* セクション余白をスマホ向けに最適化 */
   section {
     padding: 24px 0;
   }
 
-  /* ロゴの最適化 */
   .logo img {
     width: 100px;
   }
@@ -491,7 +488,6 @@ section {
     width: 250px !important;
   }
 
-  /* 店舗写真の横切れ防止 */
   .store-photo,
   .shop-photo {
     width: 100%;
