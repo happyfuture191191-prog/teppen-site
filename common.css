@@ -460,10 +460,9 @@ body {
   }
 
   body::after {
-    opacity: 0.15;
-    backdrop-filter: blur(1px);
-    background-color: rgba(255,255,255,0.25);
-    background-image: none;
+    opacity: 0;
+    background-color: transparent;
+    backdrop-filter: none;
   }
 
   img {
