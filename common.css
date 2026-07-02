@@ -433,7 +433,7 @@ img {
 
 /* ボタンの基本設定（全デバイス共通） */
 button, .btn {
-  padding: 14px 20px;
+  padding: 15px 20px;
   font-size: 16px;
 }
 
