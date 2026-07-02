@@ -196,6 +196,13 @@
   text-shadow: 1px 1px 3px black;
 }
 
+.slideshow-container,
+.store-section,
+.pickup-menu,
+.local-drinks {
+  background: transparent;
+}
+
 /* ============================
    ⑧スマホ用（768px以下）
 ============================ */
