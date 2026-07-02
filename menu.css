@@ -101,7 +101,11 @@
   color: #ffd700;
 }
 
-
+.menu-container,
+.menu-grid,
+.menu-card {
+  background: transparent;
+}
 /* ============================
    ⑧ スマホ対応
 ============================ */
