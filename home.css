@@ -209,13 +209,13 @@
 @media screen and (max-width: 1024px) {
   .slideshow-container {
     width: 100%;
-    height: auto;
+    height: 60vh;
     overflow: hidden;
   }
 
   .slideshow-container img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
   }
 
