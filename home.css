@@ -257,3 +257,9 @@
   }
 } /* ← これで閉じる！ */
  
+/*スマホ版で 文章を2行ずつに分ける*/
+@media screen and (max-width: 600px) {
+  .store-concept p {
+    white-space: pre-line;
+  }
+}
