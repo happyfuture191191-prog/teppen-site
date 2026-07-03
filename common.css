@@ -442,7 +442,7 @@ section {
 ============================ */
 @media (max-width: 1024px) {
 
-body {
+  body {
     background-image: url("sunset_boat2_sp_1080x1920.png");
     background-attachment: scroll;
     background-size: cover;
@@ -457,6 +457,11 @@ body {
     background-color: transparent;
     backdrop-filter: none;
   }
+
+  /* スマホでもスライドショーの高さを確保 */
+  .slideshow-container {
+    height: 50vh;
+}
 
   img {
     width: 100%;
