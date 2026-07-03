@@ -18,3 +18,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+
+let lastScrollY = window.scrollY;
+const header = document.querySelector('.site-header');
+
+if (header) {
+  window.addEventListener('scroll', () => {
+    const currentY = window.scrollY;
+
+    if (currentY > lastScrollY && currentY > 50) {
+      header.classList.add('header-hidden');
+    } else {
+      header.classList.remove('header-hidden');
+    }
+
+    lastScrollY = currentY;
+  });
+}
