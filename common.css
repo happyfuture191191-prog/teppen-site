@@ -375,6 +375,11 @@ h3 {
   background: white;
   border-radius: 2px;
   transition: 0.3s;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
 }
 
 #overlay {
