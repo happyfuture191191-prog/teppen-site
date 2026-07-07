@@ -384,10 +384,11 @@ h3 {
   border-radius: 2px;
   transition: 0.3s;
   background: #fff;
-  border: 2px solid #000; /* ← 黒縁を実線で付ける */
+  border: 1px solid rgba(0,0,0,0.55); /* ← 線をさらに薄く */
+  border-radius: 3px; /* ← 角の丸みを追加（絶妙） */
   box-shadow:
-    0 0 3px #000,
-    0 0 6px #000; /* ← 黒の外側影でさらに視認性UP */
+    0 0 3px rgba(0,0,0,0.45), /* ← ぼかしを広げる */
+    0 0 6px rgba(0,0,0,0.35); /* ← 外側のぼかしを追加 */
 }
 
 #overlay {
