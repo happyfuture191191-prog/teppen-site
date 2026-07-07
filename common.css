@@ -383,11 +383,11 @@ h3 {
   background: white;
   border-radius: 2px;
   transition: 0.3s;
-  text-shadow:
-    -1px -1px 0 #000,
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000;
+  background: #fff;
+  border: 2px solid #000; /* ← 黒縁を実線で付ける */
+  box-shadow:
+    0 0 3px #000,
+    0 0 6px #000; /* ← 黒の外側影でさらに視認性UP */
 }
 
 #overlay {
