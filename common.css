@@ -74,13 +74,20 @@ body::after {
    ⑤ 見出し（和モダン × 海鮮 × 上品）
 ============================ */
 /* ▼ 全見出し共通：背景が濃くても読める影付きデザイン */
+.section-title 
+.page-title,
 .section-title {
-  color: #000;
-  font-weight: 600;
-  padding: 6px 12px; /* ← 余白で上品に */
-  background: rgba(255,255,255,0.55); /* ← 白の半透明帯（上品） */
-  border-radius: 6px; /* ← 角丸で柔らかく */
-  backdrop-filter: blur(2px); /* ← 背景を少しぼかして読みやすく */
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 300;
+  font-size: 28px;
+  color: #ffffff;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 18px 24px;
+  border-radius: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 40px auto 30px;
+  width: fit-content;
 }
 
 h1, h2, h3 {
@@ -329,26 +336,6 @@ h3 {
 
 .fa-twitter:hover {
   color: #0d8ddb;
-}
-
-.fb-icon {
-  width: 48px;
-  height: 48px;
-  background-color: #1877F2;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  font-size: 32px;
-  color: #ffffff;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-.fb-icon:hover {
-  filter: brightness(1.1);
 }
 
 /* ============================
