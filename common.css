@@ -381,9 +381,15 @@ h3 {
 #overlay {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0,0,0,0.6);
   display: none;
-  z-index: 99998;
+  z-index: 100000;   /* nav より上にする */
+}
+
+#overlay.show {
+  display: block;
 }
 
 .nav {
@@ -418,9 +424,6 @@ h3 {
   right: 0;
 }
 
-#overlay.show {
-  display: block;
-}
 
 /* ============================
    ⑫「トップへ戻る」ボタン
