@@ -385,7 +385,7 @@ h3 {
   height: 100%;
   background: rgba(0,0,0,0.6);
   display: none;
-  z-index: 100000;   /* nav より上にする */
+  z-index: 99998;   /* ← nav より下にする */
 }
 
 #overlay.show {
