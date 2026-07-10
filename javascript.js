@@ -4,21 +4,34 @@ document.addEventListener("DOMContentLoaded", function() {
   const nav = document.getElementById("nav");
   const overlay = document.getElementById("overlay");
 
+  function openMenu() {
+    hamburger.classList.add("active");
+    nav.classList.add("show");
+    overlay.classList.add("show");
+    document.body.style.overflow = "hidden";   // ← スクロール禁止
+  }
+
+  function closeMenu() {
+    hamburger.classList.remove("active");
+    nav.classList.remove("show");
+    overlay.classList.remove("show");
+    document.body.style.overflow = "";         // ← 元に戻す
+  }
+
   if (hamburger && nav && overlay) {
     hamburger.addEventListener("click", () => {
-      hamburger.classList.toggle("active");
-      nav.classList.toggle("show");
-      overlay.classList.toggle("show");
+      if (nav.classList.contains("show")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
-    overlay.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      nav.classList.remove("show");
-      overlay.classList.remove("show");
-    });
+    overlay.addEventListener("click", closeMenu);
   }
 });
 
+// ===== スクロールでヘッダー隠す =====
 let lastScrollY = window.scrollY;
 const header = document.querySelector('.site-header');
 
