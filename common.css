@@ -400,11 +400,12 @@ h3 {
   top: 0;
   right: -250px;
   width: 220px;
-  height: 100%;
+  height: 100vh;              /* ← 画面の高さを必ず満たす */
   background: rgba(0,0,0,0.85);
   padding-top: 80px;
   transition: 0.3s;
-  z-index: 999999;
+  z-index: 999999;            /* ← 写真より前に出す */
+  overflow-y: hidden;         /* ← 小窓化を防ぐ決定打 */
 }
 
 .nav ul {
