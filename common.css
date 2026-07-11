@@ -87,6 +87,9 @@ body::after {
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   margin: 40px auto 30px;
   width: fit-content;
+  display: inline-block;   /* ← これが決定打 */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1, h2, h3 {
@@ -401,7 +404,7 @@ h3 {
   background: rgba(0,0,0,0.85);
   padding-top: 80px;
   transition: 0.3s;
-  z-index: 99999;
+  z-index: 999999;
 }
 
 .nav ul {
