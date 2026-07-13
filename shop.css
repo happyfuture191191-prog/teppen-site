@@ -37,6 +37,28 @@
 .section-title {
   margin-bottom: 20px;
   color: white;
+  text-align: center;
+  width: 28%; /* ← これが超重要 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  display: block;
 }
 
 .store-info-list div {
