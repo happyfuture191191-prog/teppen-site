@@ -294,7 +294,7 @@ a[href^="tel"] {
     overflow-x: auto;
     padding: 10px 0;
     scroll-snap-type: x mandatory;
-    justify-content: flex-start; /* ← PCの中央寄せを上書き */
+    justify-content: center; /* ← PCの中央寄せを上書き */
   }
 
   .sake-section .drink-container::-webkit-scrollbar {
