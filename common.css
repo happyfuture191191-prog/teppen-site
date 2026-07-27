@@ -37,7 +37,7 @@ body {
   background-color: var(--color-bg);
   margin: 0;
   padding: 0;
-  background-image: url("/teppen-site/sunset_boat2.jpg");
+  background-image: url("naraura_teppen_bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -465,12 +465,12 @@ section {
 @media (max-width: 1024px) {
 
   body {
-    background-image: url("sunset_boat2_sp_1080x1920.png");
+    background-image: url("naraura_teppen_bg_sp.png");
     background-attachment: scroll;
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     background-repeat: no-repeat;
-    height: auto;
+   
     min-height: 100vh;
   }
 
