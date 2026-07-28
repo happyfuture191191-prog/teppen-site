@@ -570,4 +570,12 @@ section {
   .site-header {
     position: fixed;
   }
+
+@media (max-width: 1024px) {
+  html, body {
+    height: auto;
+    min-height: 100%;
+  }
+}
+
 }
