@@ -53,11 +53,12 @@
 
 .menu-card {
     width: 280px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 10px;
-    padding: 10px;
+    background: rgba(0, 0, 0, 0.35); /* ← 白から黒へ変更 */
+    border-radius: 14px;
+    padding: 18px;
     text-align: center;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    backdrop-filter: blur(4px); /* ← 黒カードの質感アップ */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
 }
 
 .menu-card img {
@@ -67,14 +68,9 @@
     border-radius: 10px;
 }
 
-.menu-card h3 {
-    margin: 10px 0 5px;
-    font-size: 20px;
-}
-
+.menu-card h3,
 .menu-card p {
-    font-size: 18px;
-    color: #444;
+    color: #fff;
 }
 
 /* ============================
