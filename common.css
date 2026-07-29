@@ -575,7 +575,6 @@ section {
   html, body {
     height: auto;
     min-height: 100%;
+    }
   }
-}
-
 }
