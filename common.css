@@ -466,12 +466,38 @@ section {
   body {
     background-image: url("naraura_teppen_bg_sp.png");
     background-attachment: scroll;
-    background-size: cover;
+    background-size: contain;
     background-position: top center;
     background-repeat: no-repeat;
-   
     min-height: 100vh;
   }
+
+    /* 背景固定レイヤー */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("naraura_teppen_bg_sp.png");
+    background-size: cover;        /* contain にすると途切れやすいので cover */
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;                   /* 背景として固定 */
+    transform: translateZ(0);      /* スマホで固定を効かせる裏技 */
+  }
+
+  /* 本体は背景を持たない */
+  body {
+    background: transparent !important;
+  }
+
+  /* スライドショーの高さ確保 */
+  .slideshow-container {
+    height: 50vh;
+  }
+}
 
   body::after {
     opacity: 0;
