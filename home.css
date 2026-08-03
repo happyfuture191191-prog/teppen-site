@@ -158,6 +158,15 @@ a[href^="tel"] {
   margin: auto;
 }
 
+.pickup-item {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
 /* 画像サイズだけ HOME専用 */
 .pickup-item img {
   width: 100%;
@@ -223,7 +232,26 @@ a[href^="tel"] {
 }
 
 /* ============================
-   ⑨ スマホ用（768px以下）
+   ⑨ PC版（1024px以上）
+============================ */
+@media screen and (min-width: 1024px) {
+
+  /* 人気メニューの横幅を広げる */
+  .pickup-container {
+    max-width: 1100px; /* ← 900 → 1100 に広げる */
+  }
+
+  .pickup-item {
+    padding: 22px; /* ← PCは少し余裕を持たせると高級感UP */
+  }
+
+  .pickup-item img {
+    aspect-ratio: 4 / 3; /* ← PCは横長の方が映える */
+  }
+}
+
+/* ============================
+   ⑩ スマホ用（768px以下）
 ============================ */
 @media screen and (max-width: 1024px) {
   .slideshow-container {
@@ -283,7 +311,7 @@ a[href^="tel"] {
   }
 
 /* ============================
-   ⑩ スマホ用 日本酒メニューを2×2グリッドに
+   ⑪ スマホ用 日本酒メニューを2×2グリッドに
 ============================ */
 @media screen and (max-width: 768px) {
 
