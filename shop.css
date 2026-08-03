@@ -28,7 +28,7 @@
   max-width: 900px;
   margin: 40px auto;
   padding: 20px;
-  background: rgba(149, 27, 55, 0.05);
+  background: rgba(149, 27, 55, 0.15);
   border-radius: 10px;
   color: white;
   text-shadow: 1px 1px 3px black;
@@ -39,17 +39,6 @@
   color: white;
   text-align: center;
   width: 28%; /* ← これが超重要 */
-
-
-
-
-
-
-
-
-
-
-
 
 
 
