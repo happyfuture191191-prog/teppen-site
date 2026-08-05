@@ -45,20 +45,26 @@
 
 .store-info-list dt,
 .store-info-list dd {
-  display: block;
   padding: 12px 0;
   border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
+.store-info-list div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
 .store-info-list dt {
+  width: 30%;
   font-weight: bold;
-  width: 100%;
-  margin-bottom: 4px;
+  text-align: center;
 }
 
 .store-info-list dd {
-  width: 100%;
-  text-align: left;
+  width: 70%;
+  text-align: center;
 }
 
 .tel-link {
