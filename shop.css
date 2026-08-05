@@ -38,25 +38,27 @@
   margin-bottom: 20px;
   color: white;
   text-align: center;
-  width: 28%; /* ← これが超重要 */
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.store-info-list div {
-  display: flex;
-  justify-content: space-between;
+.store-info-list dt,
+.store-info-list dd {
+  display: block;
   padding: 12px 0;
   border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 .store-info-list dt {
   font-weight: bold;
-  width: 30%;
+  width: 100%;
+  margin-bottom: 4px;
 }
 
 .store-info-list dd {
-  width: 70%;
-  text-align: right;
+  width: 100%;
+  text-align: left;
 }
 
 .tel-link {
@@ -247,13 +249,6 @@
     margin: 20px auto;
     background: rgba(255,255,255,0.15); /* ← これを追加すると赤が消える */
     backdrop-filter: blur(3px); /* ← 文字が読みやすくなる */
-  }
-
-  .store-info-list div {
-    display: flex;
-    justify-content: space-between;
-    padding: 16px 0; /* ← 12px → 16px にして余白を増やす */
-    border-bottom: 1px solid rgba(255,255,255,0.25);
   }
 
   .store-info-list dt {

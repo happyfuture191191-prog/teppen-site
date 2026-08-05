@@ -1,4 +1,36 @@
 /* ============================
+   ⓪ 朝の奈良浦漁港（背景）
+============================ */
+body {
+  background-image: url("奈良浦漁港AM.png"); /* ← 生成した画像のファイル名に変更 */
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================
    ① スライドショー（HOME専用）
 ============================ */
 .slideshow-container {
