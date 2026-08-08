@@ -43,10 +43,10 @@
    ④ メニューカード（料理カード）
 ============================ */
 .menu-grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* PC：横2列 */
     gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-items: center;
 }
 
 .menu-card {
