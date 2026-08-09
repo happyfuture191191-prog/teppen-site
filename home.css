@@ -84,64 +84,86 @@
 }
 
 /* ============================
-   ④ 店舗情報
+④ 店舗情報
 ============================ */
+
 .main-title {
-  color: #fff;
-  -webkit-text-stroke: 0.2px #000;
-  text-shadow: 1px 1px 1px rgba(0,0,0,8.5);
-  font-size: 1.7rem; /*  15% 小さく */
-  letter-spacing: 0.03em;
+    color: #fff;
+    -webkit-text-stroke: 0.2px #000;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.85);
+    font-size: 1.7rem;
+    letter-spacing: 0.03em;
 }
 
 .main-title-wrap {
-  background: rgba(0,0,0,0.35);
-  padding: 4px 10px;;
-  border-radius: 4px;
-  display: inline-block;
-  margin-top: 10px;
+    background: rgba(0,0,0,0.35);
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
+
+/* 店舗情報 */
 .store-info {
-  text-align: center;
-  margin: 40px auto;
-  color: white;
-  text-shadow: 1px 1px 3px black;
+    text-align: center;
+
+    max-width: 900px;
+    width: calc(100% - 32px);
+
+    margin: 40px auto;
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    /* SHOPページの基本情報と同じ膜 */
+    background: rgba(149, 27, 55, 0.15);
+
+    border-radius: 10px;
+
+    color: white;
+    text-shadow: 1px 1px 3px black;
 }
 
-/*店舗情報の h1 だけ “白文字＋影” を強制的に解除する*/
+
+/* 店舗情報のh1だけ解除
+   ※現在のHTMLではh2なので基本的には不要 */
 .store-info h1 {
-  color: #2A2A2A; /* common.css と同じ */
-  text-shadow: none;
+    color: #2A2A2A;
+    text-shadow: none;
 }
+
 
 a[href^="tel"] {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
+
 
 .tel-block {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
 }
+
 
 .tabelog-btn {
-  display: inline-block;
-  padding: 14px 26px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #000;
-  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-  text-decoration: none;
-  transition: 0.25s ease;
+    display: inline-block;
+    padding: 14px 26px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    text-decoration: none;
+    transition: 0.25s ease;
 }
 
+
 .tabelog-btn:hover {
-  background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
-  transform: translateY(-2px);
+    background: linear-gradient(135deg, #e6c45d 0%, #c9971a 100%);
+    transform: translateY(-2px);
 }
 
 /* ============================
@@ -395,85 +417,107 @@ a[href^="tel"] {
 }
 
 /* ============================
-   ⑩ スマホ用（768px以下）
+⑩ スマホ用（768px以下）
 ============================ */
 @media screen and (max-width: 1024px) {
-  .slideshow-container {
-    width: 100%;
-    height: 60vh;
-    overflow: hidden;
-  }
 
-  .slideshow-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+    .slideshow-container {
+        width: 100%;
+        height: 60vh;
+        overflow: hidden;
+    }
 
-  .slide {
-    animation: fade 15s infinite;
-  }
+    .slideshow-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-  .store-section,
-  .store-info,
-  .map-wrap,
-  .pickup-menu,
-  .local-drinks {
-    margin: 60px auto;
-  }
+    .slide {
+        animation: fade 15s infinite;
+    }
 
-  .pickup-menu {
-    margin: 60px auto;
-    padding: 0;
-  }
+    .store-section,
+    .store-info,
+    .map-wrap,
+    .pickup-menu,
+    .local-drinks {
+        margin: 60px auto;
+    }
 
-  .pickup-item {
-    margin-bottom: 20px;
-  }
+    .pickup-menu {
+        margin: 60px auto;
+        padding: 0;
+    }
 
-  .pickup-item img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: 10px;
-  }
+    .pickup-item {
+        margin-bottom: 20px;
+    }
 
-  .section-title,
-  .page-title {
-    margin: 0 0 24px;
-  }
+    .pickup-item img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 10px;
+    }
 
-  .shop-link-area {
-    margin: 20px 0 30px;
-  }
-} /* ← これで閉じる！ */
- 
-/*スマホ版で 文章を2行ずつに分ける*/
-@media screen and (max-width: 600px) {
-  .store-concept p {
-    white-space: pre-line;
-  }
+    .section-title,
+    .page-title {
+        margin: 0 0 24px;
+    }
+
+    .shop-link-area {
+        margin: 20px 0 30px;
+    }
+}
+
 
 /* ============================
-   ⑪ スマホ用 日本酒メニューを2×2グリッドに
+   店舗情報：スマホ用
 ============================ */
 @media screen and (max-width: 768px) {
 
-  .sake-section .drink-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 横2列 */
-    gap: 20px;
-    padding: 10px 0;
-  }
+    .store-info {
+        width: calc(100% - 28px);
+        padding: 24px 14px 30px;
+        background: rgba(149, 27, 55, 0.25);
+        border-radius: 10px;
+    }
 
-  .sake-section .drink-item {
-    text-align: center;
-  }
+}
 
-  .sake-section .drink-item img {
-    width: 100%;
-    height: 200px; /* スマホは少し低めにすると綺麗 */
-    object-fit: cover;
-    border-radius: 10px;
-  }
+/* ============================
+   スマホ版：店舗コンセプト
+============================ */
+@media screen and (max-width: 600px) {
+
+    .store-concept p {
+        white-space: pre-line;
+    }
+
+}
+
+/* ============================
+⑪ スマホ用 日本酒メニューを2×2グリッドに
+============================ */
+@media screen and (max-width: 768px) {
+
+    .sake-section .drink-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 10px 0;
+    }
+
+    .sake-section .drink-item {
+        text-align: center;
+    }
+
+    .sake-section .drink-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
 }
