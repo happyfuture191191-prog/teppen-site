@@ -172,11 +172,32 @@ a[href^="tel"] {
     text-align: right;
     font-weight: bold;
     margin-right: 15px;
+    padding: 12px 16px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
 .hours-row span:last-child {
     width: 180px;
     text-align: left;
+}
+
+.hours-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 12px 16px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    line-height: 1.7;
+}
+
+.hours-row:last-child {
+    border-bottom: none;
+}
+
+.hours-row:last-child {
+    border-bottom: none;
 }
 
 .tabelog-btn {
