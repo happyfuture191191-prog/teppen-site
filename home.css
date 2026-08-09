@@ -151,6 +151,33 @@ a[href^="tel"] {
     margin-top: 10px;
 }
 
+/* ============================
+   営業時間
+============================ */
+
+.business-hours {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.hours-row {
+    display: grid;
+    grid-template-columns: 70px 180px;
+    justify-content: center;
+    text-align: left;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.hours-row span:first-child {
+    font-weight: bold;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.hours-row span:last-child {
+    text-align: left;
+}
 
 .tabelog-btn {
     display: inline-block;
