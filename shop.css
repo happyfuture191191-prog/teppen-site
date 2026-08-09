@@ -176,29 +176,38 @@
 }
 
 /* ============================
-   ⑤ アクセス
+⑤ アクセス
 ============================ */
 .store-access {
-  max-width: 900px;
-  margin: 40px auto;
+    width: calc(100% - 32px);
+    max-width: 900px;
+    margin: 60px auto;
+}
+
+.map-wrap {
+    width: 100%;
+    margin: 30px auto 0;
 }
 
 .map-wrap iframe {
-  width: 100%;
-  border-radius: 10px;
+    display: block;
+    width: 100%;
+    height: 450px;
+    border: 0;
+    border-radius: 10px;
 }
 
 .access-text {
-  margin-top: 20px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: white;
-  text-shadow: 1px 1px 3px black;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: white;
+    text-shadow: 1px 1px 3px black;
 }
 
 /* アクセス文を中央揃え */
 .access-text p {
-  text-align: center;
+    text-align: center;
 }
 
 /* ============================
