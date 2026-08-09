@@ -76,16 +76,17 @@
 }
 
 .store-concept {
-    max-width: 700px;
+    max-width: 520px;
     margin: 20px auto 0;
-    padding: 14px 18px;
-    background: rgba(10, 26, 47, 0.22);
-    border-radius: 12px;
-    backdrop-filter: blur(2px);
-    color: white;
-    text-align: center;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    padding: 18px 24px;
+    background: rgba(0, 0, 0, 0.38);
+    border-radius: 10px;
+    color: #fff;
+    text-shadow:
+        1px 1px 3px rgba(0, 0, 0, 0.9);
+    line-height: 1.8;
     box-sizing: border-box;
+    backdrop-filter: blur(3px);
 }
 
 /* ============================
@@ -108,28 +109,20 @@
     margin-top: 10px;
 }
 
-
 /* 店舗情報 */
 .store-info {
     text-align: center;
-
     max-width: 900px;
     width: calc(100% - 32px);
-
     margin: 40px auto;
     padding: 20px;
-
     box-sizing: border-box;
-
     /* SHOPページの基本情報と同じ膜 */
     background: rgba(149, 27, 55, 0.15);
-
     border-radius: 10px;
-
     color: white;
     text-shadow: 1px 1px 3px black;
 }
-
 
 /* 店舗情報のh1だけ解除
    ※現在のHTMLではh2なので基本的には不要 */
@@ -138,12 +131,10 @@
     text-shadow: none;
 }
 
-
 a[href^="tel"] {
     color: inherit;
     text-decoration: none;
 }
-
 
 .tel-block {
     font-size: 20px;
@@ -539,10 +530,13 @@ a[href^="tel"] {
 ============================ */
 @media screen and (max-width: 600px) {
 
-    .store-concept p {
-        white-space: pre-line;
+    .store-concept {
+        width: calc(100% - 40px);
+        max-width: 520px;
+        padding: 16px 20px;
+        font-size: 16px;
+        line-height: 1.75;
     }
-
 }
 
 /* ============================
