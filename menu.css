@@ -142,7 +142,7 @@
 }
 
 /* ============================
-   ⑨ スマホ・タブレット対応
+   ⑨ タブレット対応
 ============================ */
 
 /* タブレット領域の余白最適化（768〜900px） */
@@ -152,42 +152,116 @@
   }
 }
 
-/* スマホ領域（〜768px） */
+/* =========================================================
+   ⑩ スマホ版：メニューカード 2列レイアウト
+========================================================= */
 @media screen and (max-width: 768px) {
 
-  .menu-container {
-    padding: 16px 24px;
-  }
+    .menu-container {
+        padding: 16px 14px 40px;
+    }
 
-  .menu-title {
-    font-size: 22px;
-    margin: 25px 0 12px;
-  }
+    /* カテゴリタイトル */
+    .menu-title {
+        font-size: 22px;
+        margin: 30px 0 18px;
+        line-height: 1.4;
+        text-align: center;
+    }
 
-  .menu-grid {
-    flex-direction: column;
-    align-items: center;
-  }
+    /* ★ スマホでも2列 */
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        width: 100%;
+        justify-items: stretch;
+    }
 
-  .menu-card {
-    width: 100%;
-    max-width: 320px;
-    margin-bottom: 20px;
-  }
+    /* メニューカード */
+    .menu-card {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
 
-  .menu-card p,
-  .price {
-    font-size: 16px;
-  }
+        margin: 0;
+        padding: 10px;
 
-  .desc {
-    line-height: 1.75; /* ← スマホ読みやすさUP */
-  }
+        background: rgba(0, 0, 0, 0.30);
+        border-radius: 12px;
 
-  .lightbox .close {
-    font-size: 32px;
-    right: 20px;
-  }
+        text-align: center;
+
+        backdrop-filter: blur(4px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.30);
+    }
+
+    /* 料理写真 */
+    .menu-card img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        display: block;
+        border-radius: 8px;
+    }
+
+    /* 商品名 */
+    .menu-card h3 {
+        font-size: 16px;
+        line-height: 1.4;
+
+        margin: 10px 0 6px;
+
+        color: #fff;
+    }
+
+    /* 説明文 */
+    .menu-card p {
+        font-size: 13px;
+        line-height: 1.55;
+
+        margin: 5px 0;
+
+        color: #fff;
+    }
+
+    /* 値段 */
+    .menu-card .price,
+    .price {
+        font-size: 15px;
+        line-height: 1.4;
+
+        margin-top: 7px;
+
+        color: #ffd700;
+    }
+
+    .desc {
+        line-height: 1.55;
+    }
+
+    /* 日本酒 */
+    .sake-card img {
+        aspect-ratio: 3 / 4;
+        object-fit: contain;
+        background-color: #000;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+
+    /* 縦並び指定を使っている部分 */
+    .menu-vertical {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* ライトボックス */
+    .lightbox .close {
+        font-size: 32px;
+        right: 20px;
+    }
 }
 
 /* PC用：1024px以上で3列にする */
