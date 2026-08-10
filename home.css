@@ -191,6 +191,10 @@ a[href^="tel"] {
     border-bottom: none;
 }
 
+.hours-row.single {
+    align-items: center;   
+}
+
 .tabelog-btn {
     display: inline-block;
     padding: 14px 26px;
