@@ -8,7 +8,7 @@
 ============================ */
 .slideshow-container {
   width: 100%;
-  height: 60vh;
+  height: 55vh;
   position: relative;
   overflow: hidden;
   pointer-events: auto;
@@ -467,7 +467,7 @@ a[href^="tel"] {
 
     .slideshow-container {
         width: 100%;
-        height: 60vh;
+        height: 55vh;
         overflow: hidden;
     }
 
