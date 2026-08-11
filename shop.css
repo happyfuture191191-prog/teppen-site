@@ -25,13 +25,17 @@
    ② 基本情報ブロック
 ============================ */
 .store-info-block {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background: rgba(149, 27, 55, 0.15);
-  border-radius: 10px;
-  color: white;
-  text-shadow: 1px 1px 3px black;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+
+    background: rgba(149, 27, 55, 0.15); /* PC版もスマホ版も同じにする */
+    border-radius: 10px;
+
+    color: white;
+    text-shadow: 1px 1px 3px black;
+
+    text-align: center; /* ← 中央揃えの核 */
 }
 
 .section-title {
@@ -59,7 +63,7 @@
 .store-info-list dt {
   width: 30%;
   font-weight: bold;
-  text-align: center;
+  text-align: right;
 }
 
 .store-info-list dd {
@@ -98,11 +102,6 @@
 .hours-row span:last-child {
     width: 180px;
     text-align: left;
-}
-
-/* 土曜日だけ中央揃え */
-.hours-row.single {
-    align-items: center;
 }
 
 .hours-row.single span:last-child {
@@ -305,27 +304,6 @@
     border-radius: 8px;
   }
 
-  /* 基本情報ブロック */
-  .store-info-block {
-    padding: 15px;
-    margin: 20px auto;
-    background: rgba(255,255,255,0.15); /* ← これを追加すると赤が消える */
-    backdrop-filter: blur(3px); /* ← 文字が読みやすくなる */
-  }
-
-  .store-info-list dt {
-    font-weight: bold;
-    width: 35%; /* ← 30% → 35% にして読みやすく */
-    margin-bottom: 6px; /* ← 4px → 6px */
-
-  }
-
-  .store-info-list dd {
-    width: 65%;
-    text-align: left;
-    line-height: 1.6; /* ← 行間を追加 */
-  }
-
   /* セクションタイトル */
   .section-title {
     font-size: 22px;
@@ -390,6 +368,7 @@
 
 /* スマホ版 dt の余白を統一 */
 @media screen and (max-width: 1024px) {
+  
   .store-info-list dt {
     margin-bottom: 6px; /* ← これに統一 */
   }
@@ -438,3 +417,5 @@
         font-size: 14px;
         opacity: 0.9;
     }
+
+    
