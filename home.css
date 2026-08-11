@@ -529,17 +529,20 @@ a[href^="tel"] {
 
 }
 
-/* ============================
-   スマホ版：店舗コンセプト
-============================ */
 @media screen and (max-width: 600px) {
 
     .store-concept {
-        width: calc(100% - 40px);
+        width: calc(100% - 28px);
         max-width: 520px;
-        padding: 16px 20px;
+        padding: 16px 14px;
         font-size: 16px;
-        line-height: 1.75;
+        line-height: 1.8;
+        box-sizing: border-box;
+    }
+
+    .store-concept p {
+        margin: 0;
+        text-align: center;
     }
 }
 
