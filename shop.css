@@ -414,9 +414,19 @@
 
   /* 店主の想い */
   .owner-photo {
-    max-width: 100%;
+    width: 92%;
+    max-width: 600px;
+    margin: 0 auto 24px;
   }
 
+    .gallery-grid {
+    padding: 0 4%;
+  }
+
+    .gallery-item {
+    width: 100%;
+  }
+}
   .access-text p,
   .owner-message {
     line-height: 1.8; /* ← 1.6 → 1.8 */
