@@ -41,7 +41,7 @@
 
 .menu-card {
     width: 280px;
-    background: rgba(0, 0, 0, 0.28); /* ← 視認性UPの最適濃度 */
+    background: rgba(0, 0, 0, 0.78);
     border-radius: 14px;
     padding: 18px;
     text-align: center;
@@ -51,7 +51,7 @@
 }
 
 .menu-card:hover {
-    background: rgba(0, 0, 0, 0.38); /* ← hoverで高級感UP */
+    background: rgba(0, 0, 0, 0.88); /* ← hoverで高級感UP */
     transform: translateY(-3px);
 }
 
@@ -156,15 +156,11 @@
         width: 100%;
         max-width: none;
         box-sizing: border-box;
-
         margin: 0;
         padding: 10px;
-
-        background: rgba(0, 0, 0, 0.30);
+        background: rgba(0, 0, 0, 0.78);
         border-radius: 12px;
-
         text-align: center;
-
         backdrop-filter: blur(4px);
         box-shadow: 0 4px 10px rgba(0,0,0,0.30);
     }
