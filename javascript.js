@@ -65,3 +65,20 @@ if (lightbox && lightboxImg && closeBtn) {
     lightbox.style.display = "none";
   });
 }
+
+// ===== 食べログリンク クリック計測 =====
+document.addEventListener("DOMContentLoaded", function() {
+  const tabelogLinks = document.querySelectorAll('a[href*="tabelog.com"]');
+
+  tabelogLinks.forEach(function(link) {
+    link.addEventListener("click", function() {
+      if (typeof gtag === "function") {
+        gtag("event", "tabelog_click", {
+          link_url: this.href,
+          link_text: this.textContent.trim(),
+          page_location: window.location.href
+        });
+      }
+    });
+  });
+});
